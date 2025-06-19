@@ -48,7 +48,8 @@ int edad = 25;
 ```
 
 
-> NOTA: En python se puede definir el tipo con el modulo `typing`. Más en siguientes módulos
+> 🔍 **NOTA**  
+> En python se puede definir el tipo con el modulo `typing`. Más en siguientes módulos
 
 
 ### 2. Funciones
@@ -134,7 +135,7 @@ class Persona
     }
 }
 ```
-
+> 🔍 **NOTA**  
 > Otra manera de declarar una clase en python es haciendo uso del modulo `dataclass`
 > Ejemplo:
 > ```python
@@ -297,3 +298,52 @@ switch (x)
 ```
 
 ## List comprehensions y desempaquetado de variables
+
+### 1. List Comprehensions
+
+```python
+# Python
+# Crear una lista con los cuadrados del 0 al 9
+cuadrados = [x**2 for x in range(10)]
+print(cuadrados)  # [0, 1, 4, 9, 16, ..., 81]
+```
+
+```csharp
+// 🔸 C# (con LINQ)
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+var cuadrados = Enumerable.Range(0, 10)
+                          .Select(x => x * x)
+                          .ToList();
+
+Console.WriteLine(string.Join(", ", cuadrados)); // 0, 1, 4, ..., 81
+```
+
+> 🔍 **NOTA**   
+> -	Python es más conciso con list comprehensions.
+> -	C# usa Enumerable.Range y Select (LINQ).
+
+### 2. Desempaquetado de variables (Unpacking)
+
+```python
+# Desempaquetar una tupla
+a, b = (1, 2)
+print(a)  # 1
+print(b)  # 2
+
+# Intercambio de valores
+a, b = b, a
+```
+
+```csharp
+// 🔸 C# (hasta C# 7.0+)
+// Desempaquetar tuplas (C# 7.0+)
+(int a, int b) = (1, 2);
+Console.WriteLine(a);  // 1
+Console.WriteLine(b);  // 2
+
+// Intercambio de valores
+(a, b) = (b, a);
+```
