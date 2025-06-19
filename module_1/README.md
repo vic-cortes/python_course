@@ -132,26 +132,36 @@ else
 
 ### 4. For loops
 
+<div class="columns">
+<div>
+
+`Python`
 ```python
-# Python
 for i in range(5):
     print(i)
 ```
+</div>
+<div>
 
+`C#`
 ```csharp
-// C#
 for (int i = 0; i < 5; i++)
 {
     Console.WriteLine(i);
 }
 ```
+</div>
+</div>
+
 
 ---
 
 ### 5. Clases y métodos
+<div class="columns">
+<div>
 
+`Python`
 ```python
-# Python
 class Persona:
     def __init__(self, nombre):
         self.nombre = nombre
@@ -159,9 +169,11 @@ class Persona:
     def saludar(self):
         print(f"Hola, soy {self.nombre}")
 ```
+</div>
+<div>
 
+`C#`
 ```csharp
-// C#
 class Persona
 {
     public string Nombre { get; set; }
@@ -177,8 +189,12 @@ class Persona
     }
 }
 ```
+</div>
+</div>
+
+---
 > 🔍 **NOTA**  
-> Otra manera de declarar una clase en python es haciendo uso del modulo `dataclass`
+> Otra manera de declarar una clase en python es haciendo uso del módulo `dataclass`
 > Ejemplo:
 > ```python
 > from dataclass import dataclass
@@ -209,21 +225,30 @@ class Persona
 
 ---
 
+<div class="columns">
+<div>
+
+`Python`
 ```python
-# Python
 x = 10        # int
 pi = 3.14     # float
 texto = "Hola"
 activo = True
 ```
 
+</div>
+<div>
+
+`C#`
 ```csharp
-// C#
 int x = 10;
 double pi = 3.14;
 string texto = "Hola";
 bool activo = true;
 ```
+
+</div>
+</div>
 
 ---
 
@@ -238,16 +263,16 @@ bool activo = true;
 
 ---
 
+`Python`
 ```python
-# Python
 lista = [1, 2, 3]
 tupla = (1, 2)
 dic = {"a": 1, "b": 2}
 conjunto = {1, 2, 3}
 ```
 
+`C#`
 ```csharp
-// C#
 List<int> lista = new List<int> { 1, 2, 3 };
 Tuple<int, int> tupla = new Tuple<int, int>(1, 2);
 Dictionary<string, int> dic = new Dictionary<string, int> { { "a", 1 }, { "b", 2 } };
@@ -282,34 +307,43 @@ else
 
 #### `for`
 
+<div class="columns">
+<div>
+
+`Python`
 ```python
-# Python
 for i in range(5):
     print(i)
 ```
+</div>
+<div>
 
+`C#`
 ```csharp
-// C#
 for (int i = 0; i < 5; i++)
 {
     Console.WriteLine(i);
 }
 ```
+</div>
+</div>
 
----
 
 #### `while`
 
+<div class="columns">
+<div>
+
 ```python
-# Python
 i = 0
 while i < 5:
     print(i)
     i += 1
 ```
+</div>
+<div>
 
 ```csharp
-// C#
 int i = 0;
 while (i < 5)
 {
@@ -317,12 +351,18 @@ while (i < 5)
     i++;
 }
 ```
+</div>
+</div>
 
 ---
 
 #### `switch`
 
-🔸 Python ≥3.10 tiene match (similar a switch):
+<div class="columns">
+<div>
+
+
+`Python`
 
 ```python
 # Python 3.10+
@@ -334,6 +374,13 @@ match x:
     case _:
         print("Otro")
 ```
+
+> 🔸 Python ≥3.10 tiene match (similar a switch):
+
+</div>
+<div>
+
+`C#`
 
 ```csharp
 // C# 8+
@@ -350,6 +397,9 @@ switch (x)
         break;
 }
 ```
+
+</div>
+</div>
 
 ---
 
