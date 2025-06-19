@@ -1,8 +1,19 @@
-# Introducción y sintaxis moderna
+---
+marp: true
+style: |
+    .columns {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+    }
+---
+
+# Módulo 1: Introducción y sintaxis moderna
+
+---
 
 ## Filosofía de Python (Zen de Python)
 
-[PEP-20](https://peps.python.org/pep-0020/)
 
 ```
 >>> import this
@@ -28,58 +39,83 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 ```
-
-[PEP-8](https://peps.python.org/pep-0008/)
-
+---
 ## Sintaxis básica y diferencias con otros lenguajes
 
-### 1. Declaración de variables
+---
 
+### 1. Declaración de variables
+<div class="columns">
+<div>
+
+`Python`
 ```python
-# Python (tipado dinámico)
 mensaje = "Hola mundo"
 edad = 25
 ```
 
-```csharp
-// C# (tipado estático)
-string mensaje = "Hola mundo";
-int edad = 25;
-```
-
-
 > 🔍 **NOTA**  
 > En python se puede definir el tipo con el modulo `typing`. Más en siguientes módulos
 
+</div>
+
+<div>
+
+`C#`
+```csharp
+string mensaje = "Hola mundo";
+int edad = 25;
+```
+</div>
+</div>
+
+
+
+---
 
 ### 2. Funciones
 
+<div class="columns">
+<div>
+
+`Python`
 ```python
-# Python
 def saludar(nombre):
     print(f"Hola, {nombre}")
 ```
+</div>
+<div>
 
+`C#`
 ```csharp
-// C#
 void Saludar(string nombre)
 {
     Console.WriteLine($"Hola, {nombre}");
 }
 ```
+</div>
+</div>
+
+---
 
 ### 3. Condicionales
+<div class="columns">
+<div>
+
+`Python`
 
 ```python
-# Python
 if edad >= 18:
     print("Es mayor de edad")
 else:
     print("Es menor de edad")
 ```
+</div>
+<div>
 
+
+`C#`
 ```csharp
-// C#
 if (edad >= 18)
 {
     Console.WriteLine("Es mayor de edad");
@@ -89,6 +125,10 @@ else
     Console.WriteLine("Es menor de edad");
 }
 ```
+</div>
+</div>
+
+---
 
 ### 4. For loops
 
@@ -105,6 +145,8 @@ for (int i = 0; i < 5; i++)
     Console.WriteLine(i);
 }
 ```
+
+---
 
 ### 5. Clases y métodos
 
@@ -149,10 +191,11 @@ class Persona
 >         print(f"Hola, soy {self.nombre}")
 > ```
 
+---
 
 ## Tipos de datos y estructuras de control
 
-
+---
 
 ### 1. 🔢 Tipos de Datos Primitivos
 
@@ -163,6 +206,8 @@ class Persona
 | Cadena     | `str`                   | `string`                  |
 | Booleano   | `bool` (`True/False`)   | `bool` (`true/false`)     |
 
+
+---
 
 ```python
 # Python
@@ -180,6 +225,8 @@ string texto = "Hola";
 bool activo = true;
 ```
 
+---
+
 ### 2. 📦 Estructuras de Datos Compuestas
 
  Tipo        | Python               | C#                                |
@@ -189,6 +236,7 @@ bool activo = true;
 | Diccionario | `dict`               | `Dictionary<TKey, TValue>`       |
 | Conjunto    | `set`                | `HashSet<T>`                      |
 
+---
 
 ```python
 # Python
@@ -205,7 +253,7 @@ Tuple<int, int> tupla = new Tuple<int, int>(1, 2);
 Dictionary<string, int> dic = new Dictionary<string, int> { { "a", 1 }, { "b", 2 } };
 HashSet<int> conjunto = new HashSet<int> { 1, 2, 3 };
 ```
-
+---
 ### 🔁 3. Estructuras de control
 
 #### `if/else`
@@ -230,6 +278,8 @@ else
 }
 ```
 
+---
+
 #### `for`
 
 ```python
@@ -245,6 +295,8 @@ for (int i = 0; i < 5; i++)
     Console.WriteLine(i);
 }
 ```
+
+---
 
 #### `while`
 
@@ -265,6 +317,8 @@ while (i < 5)
     i++;
 }
 ```
+
+---
 
 #### `switch`
 
@@ -297,7 +351,11 @@ switch (x)
 }
 ```
 
+---
+
 ## List comprehensions y desempaquetado de variables
+
+---
 
 ### 1. List Comprehensions
 
@@ -320,10 +378,12 @@ var cuadrados = Enumerable.Range(0, 10)
 
 Console.WriteLine(string.Join(", ", cuadrados)); // 0, 1, 4, ..., 81
 ```
-
+---
 > 🔍 **NOTA**   
 > -	Python es más conciso con list comprehensions.
 > -	C# usa Enumerable.Range y Select (LINQ).
+
+---
 
 ### 2. Desempaquetado de variables (Unpacking)
 
@@ -347,3 +407,10 @@ Console.WriteLine(b);  // 2
 // Intercambio de valores
 (a, b) = (b, a);
 ```
+
+---
+
+# Recursos
+
+- [PEP-20](https://peps.python.org/pep-0020/)
+- [PEP-8](https://peps.python.org/pep-0008/)
