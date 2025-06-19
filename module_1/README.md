@@ -150,4 +150,150 @@ class Persona
 
 
 ## Tipos de datos y estructuras de control
+
+
+
+### 1. 🔢 Tipos de Datos Primitivos
+
+| Concepto   | Python                  | C#                        |
+|------------|--------------------------|----------------------------|
+| Entero     | `int`                   | `int`                     |
+| Decimal    | `float`                 | `float`, `double`         |
+| Cadena     | `str`                   | `string`                  |
+| Booleano   | `bool` (`True/False`)   | `bool` (`true/false`)     |
+
+
+```python
+# Python
+x = 10        # int
+pi = 3.14     # float
+texto = "Hola"
+activo = True
+```
+
+```csharp
+// C#
+int x = 10;
+double pi = 3.14;
+string texto = "Hola";
+bool activo = true;
+```
+
+### 2. 📦 Estructuras de Datos Compuestas
+
+ Tipo        | Python               | C#                                |
+|-------------|-----------------------|------------------------------------|
+| Lista       | `list`               | `List<T>`                         |
+| Tupla       | `tuple`              | `Tuple<T1, T2>`                   |
+| Diccionario | `dict`               | `Dictionary<TKey, TValue>`       |
+| Conjunto    | `set`                | `HashSet<T>`                      |
+
+
+```python
+# Python
+lista = [1, 2, 3]
+tupla = (1, 2)
+dic = {"a": 1, "b": 2}
+conjunto = {1, 2, 3}
+```
+
+```csharp
+// C#
+List<int> lista = new List<int> { 1, 2, 3 };
+Tuple<int, int> tupla = new Tuple<int, int>(1, 2);
+Dictionary<string, int> dic = new Dictionary<string, int> { { "a", 1 }, { "b", 2 } };
+HashSet<int> conjunto = new HashSet<int> { 1, 2, 3 };
+```
+
+### 🔁 3. Estructuras de control
+
+#### `if/else`
+
+```python
+# Python
+if x > 5:
+    print("Mayor")
+else:
+    print("Menor o igual")
+```
+
+```csharp
+// C#
+if (x > 5)
+{
+    Console.WriteLine("Mayor");
+}
+else
+{
+    Console.WriteLine("Menor o igual");
+}
+```
+
+#### `for`
+
+```python
+# Python
+for i in range(5):
+    print(i)
+```
+
+```csharp
+// C#
+for (int i = 0; i < 5; i++)
+{
+    Console.WriteLine(i);
+}
+```
+
+#### `while`
+
+```python
+# Python
+i = 0
+while i < 5:
+    print(i)
+    i += 1
+```
+
+```csharp
+// C#
+int i = 0;
+while (i < 5)
+{
+    Console.WriteLine(i);
+    i++;
+}
+```
+
+#### `switch`
+
+🔸 Python ≥3.10 tiene match (similar a switch):
+
+```python
+# Python 3.10+
+match x:
+    case 1:
+        print("Uno")
+    case 2:
+        print("Dos")
+    case _:
+        print("Otro")
+```
+
+```csharp
+// C# 8+
+switch (x)
+{
+    case 1:
+        Console.WriteLine("Uno");
+        break;
+    case 2:
+        Console.WriteLine("Dos");
+        break;
+    default:
+        Console.WriteLine("Otro");
+        break;
+}
+```
+
 ## List comprehensions y desempaquetado de variables
