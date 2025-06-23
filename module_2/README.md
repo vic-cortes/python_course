@@ -23,31 +23,85 @@ Crear una función que procese una lista de números, aplique una operación esp
 
 ---
 
-### 1. Declaración de variables
-<div class="columns">
-<div>
+### 1. Función básica
 
-`Python`
+
+
 ```python
-mensaje = "Hola mundo"
-edad = 25
+def saludar():
+    print("¡Hola mundo!")
+
+saludar()
 ```
 
-> 🔍 **NOTA**  
-> En python se puede definir el tipo con el modulo `typing`. Más en siguientes módulos
 
-</div>
+### 2. Función con parámetros
 
-<div>
+```python
+def saludar(nombre):
+    print(f"Hola, {nombre}")
 
-`C#`
-```csharp
-string mensaje = "Hola mundo";
-int edad = 25;
+saludar("Lucía")  # Hola, Lucía
 ```
-</div>
-</div>
 
 
+> `f-strings` fueron introducidas en pyhthon 3.8
 
 ---
+
+### 3. Parámetros con valor por defecto
+
+```python
+def saludar(nombre="amigo"):
+    print(f"Hola, {nombre}")
+
+saludar()          # Hola, amigo
+saludar("Luis")    # Hola, Luis
+```
+
+### 4. `*args`: argumentos variables (tupla)
+
+```python
+def sumar(*numeros):
+    total = sum(numeros)
+    print(f"Total: {total}")
+
+sumar(1, 2, 3)  # Total: 6
+```
+
+---
+
+### 5. `**kwargs`: argumentos nombrados variables (diccionario)
+
+```python
+def mostrar_info(**datos):
+    for clave, valor in datos.items():
+        print(f"{clave}: {valor}")
+
+mostrar_info(nombre="Ana", edad=30)
+# nombre: Ana
+# edad: 30
+```
+
+### 6. Función con tipado estático (typing)
+
+```python
+from typing import List
+
+def promedio(numeros: List[float]) -> float:
+    return sum(numeros) / len(numeros)
+
+print(promedio([5.0, 7.5, 10]))  # 7.5
+```
+
+---
+
+### 7. Función que retorna un valor
+
+```python
+def cuadrado(n):
+    return n * n
+
+resultado = cuadrado(5)
+print(resultado)  # 25
+```
