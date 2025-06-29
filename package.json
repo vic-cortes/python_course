@@ -1,0 +1,23 @@
+{
+  "name": "python_course",
+  "version": "1.0.0",
+  "description": "Python course for developers",
+  "homepage": "https://github.com/vic-cortes/python_course#readme",
+  "bugs": {
+    "url": "https://github.com/vic-cortes/python_course/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vic-cortes/python_course.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "pnpm": "^10.12.4"
+  }
+}
