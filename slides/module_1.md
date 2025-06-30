@@ -6,12 +6,7 @@ theme: default
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://cover.sli.dev
 # some information about your slides (markdown enabled)
-title: Welcome to Slidev
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
+title: Welcome to Module 1
 # apply unocss classes to the current slide
 class: text-center
 # https://sli.dev/features/drawing
@@ -21,10 +16,9 @@ drawings:
 transition: fade-out
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
-# open graph
-# seoMeta:
-#  ogImage: https://cover.sli.dev
+
 layout: center
+lineNumbers: true
 ---
 
 # Módulo 1
@@ -68,7 +62,7 @@ Namespaces are one honking great idea -- let's do more of those!
 
 ---
 layout: center
-transition: fade-out
+transition: slide-up
 ---
 
 
@@ -76,34 +70,59 @@ transition: fade-out
 # Sintaxis básica y diferencias con otros lenguajes
 
 ---
+transition: slide-left
+---
 
-### 1. Declaración de variables
+## 1. Declaración de variables
+<br>
+
+<div v-click>
+
+<PythonLogo/>
 
 ```python
 mensaje = "Hola mundo"
 edad = 25
 ```
+</div>
 
-> 🔍 **NOTA**  
-> En python se puede definir el tipo con el modulo `typing`. Más en siguientes módulos
+<div v-click>
 
+<CsharpLogo/>
 
 ```csharp
 string mensaje = "Hola mundo";
 int edad = 25;
 ```
+</div>
+
+<br>
+
+<v-click>
+En python se puede definir el tipo con el modulo <span v-mark.red="3"><code>typing</code></span>. 
+Más en siguientes módulos.
+</v-click>
 
 
+---
+transition: slide-left
 ---
 
 ### 2. Funciones
 
+<br>
 
+<v-click>
+<PythonLogo/>
 
 ```python
 def saludar(nombre):
     print(f"Hola, {nombre}")
 ```
+</v-click>
+
+<v-click>
+<CsharpLogo/>
 
 ```csharp
 void Saludar(string nombre)
@@ -111,21 +130,27 @@ void Saludar(string nombre)
     Console.WriteLine($"Hola, {nombre}");
 }
 ```
+</v-click>
 
 
 ---
+transition: slide-left
+---
 
 ### 3. Condicionales
-
-
+<br>
+<v-click>
+<PythonLogo/>
 ```python
 if edad >= 18:
     print("Es mayor de edad")
 else:
     print("Es menor de edad")
 ```
+</v-click>
 
-
+<v-click>
+<CsharpLogo/>
 ```csharp
 if (edad >= 18)
 {
@@ -136,6 +161,7 @@ else
     Console.WriteLine("Es menor de edad");
 }
 ```
+</v-click>
 
 ---
 
