@@ -13,7 +13,7 @@ class: text-center
 drawings:
   persist: false
 # slide transition: https://sli.dev/guide/animations.html#slide-transitions
-transition: fade-out
+transition: slide-left
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
 
@@ -99,9 +99,15 @@ int edad = 25;
 <br>
 
 <v-click>
-En python se puede definir el tipo con el modulo <span v-mark.red="3"><code>typing</code></span>. 
-Más en siguientes módulos.
+En python se puede definir el tipo con el modulo <span v-mark.red="4"><code>typing</code></span>. 
+
 </v-click>
+
+<div mt-20 v-click>
+
+> Más en siguientes módulos
+
+</div>
 
 
 ---
@@ -164,30 +170,42 @@ else
 </v-click>
 
 ---
+transition: slide-left
+---
 
 ### 4. For loops
 
+<br>
+<v-click>
+<PythonLogo/>
 
-`Python`
 ```python
 for i in range(5):
     print(i)
 ```
 
-`C#`
+</v-click>
+
+<v-click>
+<CsharpLogo/>
+
 ```csharp
 for (int i = 0; i < 5; i++)
 {
     Console.WriteLine(i);
 }
 ```
+</v-click>
 
-
-
+---
+transition: slide-left
 ---
 
 ### 5. Clases y métodos
 
+<br>
+<v-click>
+<PythonLogo/>
 
 ```python
 class Persona:
@@ -197,7 +215,10 @@ class Persona:
     def saludar(self):
         print(f"Hola, soy {self.nombre}")
 ```
+</v-click>
 
+<v-click>
+<CsharpLogo/>
 
 ```csharp
 class Persona
@@ -215,32 +236,54 @@ class Persona
     }
 }
 ```
+</v-click>
+
+---
+transition: slide-down
+layout: center
+---
+
+<br>
+
+# Protip
+
+<v-click>
+
+<PythonLogo/>
+Otra manera de declarar una clase en python es haciendo uso del módulo 
+<span v-mark.red="2"><code>dataclass</code></span>
+</v-click>
+
+<v-click>
+
+```python
+from dataclass import dataclass
+
+@dataclass
+class Persona:
+    nombre: str
+
+    def saludar(self):
+        print(f"Hola, soy {self.nombre}")
+```
+</v-click>
+
+
+
+---
+transition: slide-up
+layout: center
+---
+
+## Tipos de datos y estructuras de control
 
 ---
 
-> 🔍 **NOTA**  
-> Otra manera de declarar una clase en python es haciendo uso del módulo `dataclass`
-> Ejemplo:
-> ```python
-> from dataclass import dataclass
-> 
-> @dataclass
-> class Persona:
->     nombre: str
-> 
->     def saludar(self):
->         print(f"Hola, soy {self.nombre}")
-> ```
+### 1. Tipos de Datos Primitivos
 
----
+<br>
 
-# Tipos de datos y estructuras de control
-
----
-
-### 1. 🔢 Tipos de Datos Primitivos
-
-| Concepto   | Python                  | C#                        |
+| Concepto   | <PythonLogo/>              | <CsharpLogo/>                        |
 |------------|--------------------------|----------------------------|
 | Entero     | `int`                   | `int`                     |
 | Decimal    | `float`                 | `float`, `double`         |
@@ -249,6 +292,14 @@ class Persona
 
 
 ---
+transition: slide-left
+---
+
+### 1. Tipos de Datos Primitivos
+
+<br>
+<v-click>
+<PythonLogo/>
 
 
 ```python
@@ -258,6 +309,11 @@ texto = "Hola"
 activo = True
 ```
 
+</v-click>
+
+<v-click>
+<CsharpLogo/>
+
 ```csharp
 int x = 10;
 double pi = 3.14;
@@ -265,28 +321,44 @@ string texto = "Hola";
 bool activo = true;
 ```
 
+</v-click>
+
 
 ---
+transition: slide-left
+---
 
-### 2. 📦 Estructuras de Datos Compuestas
+### 2. Estructuras de Datos Compuestas
 
- Tipo        | Python               | C#                                |
+ Tipo        | <PythonLogo/>              | <CsharpLogo/>                           |
 |-------------|-----------------------|------------------------------------|
 | Lista       | `list`               | `List<T>`                         |
 | Tupla       | `tuple`              | `Tuple<T1, T2>`                   |
 | Diccionario | `dict`               | `Dictionary<TKey, TValue>`       |
 | Conjunto    | `set`                | `HashSet<T>`                      |
 
+
+---
+transition: slide-left
 ---
 
+### 2. Estructuras de Datos Compuestas
+
+<br>
+<v-click>
+<PythonLogo/>
 
 ```python
-lista = [1, 2, 3]
-tupla = (1, 2)
-dic = {"a": 1, "b": 2}
-conjunto = {1, 2, 3}
+lista = [1, 2, 3] # list
+tupla = (1, 2) # tuple
+dic = {"a": 1, "b": 2} # dictionary
+conjunto = {1, 2, 3} # set
 ```
+</v-click>
 
+<v-click>
+<br>
+<CsharpLogo/>
 
 ```csharp
 List<int> lista = new List<int> { 1, 2, 3 };
@@ -294,6 +366,8 @@ Tuple<int, int> tupla = new Tuple<int, int>(1, 2);
 Dictionary<string, int> dic = new Dictionary<string, int> { { "a", 1 }, { "b", 2 } };
 HashSet<int> conjunto = new HashSet<int> { 1, 2, 3 };
 ```
+</v-click>
+
 ---
 
 ### 🔁 3. Estructuras de control
