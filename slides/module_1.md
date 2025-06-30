@@ -78,10 +78,7 @@ transition: fade-out
 ---
 
 ### 1. Declaración de variables
-<div class="columns">
-<div>
 
-`Python`
 ```python
 mensaje = "Hola mundo"
 edad = 25
@@ -90,52 +87,36 @@ edad = 25
 > 🔍 **NOTA**  
 > En python se puede definir el tipo con el modulo `typing`. Más en siguientes módulos
 
-</div>
 
-<div>
-
-`C#`
 ```csharp
 string mensaje = "Hola mundo";
 int edad = 25;
 ```
-</div>
-</div>
-
 
 
 ---
 
 ### 2. Funciones
 
-<div class="columns">
-<div>
 
-`Python`
+
 ```python
 def saludar(nombre):
     print(f"Hola, {nombre}")
 ```
-</div>
-<div>
 
-`C#`
 ```csharp
 void Saludar(string nombre)
 {
     Console.WriteLine($"Hola, {nombre}");
 }
 ```
-</div>
-</div>
+
 
 ---
 
 ### 3. Condicionales
-<div class="columns">
-<div>
 
-`Python`
 
 ```python
 if edad >= 18:
@@ -143,11 +124,8 @@ if edad >= 18:
 else:
     print("Es menor de edad")
 ```
-</div>
-<div>
 
 
-`C#`
 ```csharp
 if (edad >= 18)
 {
@@ -158,23 +136,17 @@ else
     Console.WriteLine("Es menor de edad");
 }
 ```
-</div>
-</div>
 
 ---
 
 ### 4. For loops
 
-<div class="columns">
-<div>
 
 `Python`
 ```python
 for i in range(5):
     print(i)
 ```
-</div>
-<div>
 
 `C#`
 ```csharp
@@ -183,17 +155,14 @@ for (int i = 0; i < 5; i++)
     Console.WriteLine(i);
 }
 ```
-</div>
-</div>
+
 
 
 ---
 
 ### 5. Clases y métodos
-<div class="columns">
-<div>
 
-`Python`
+
 ```python
 class Persona:
     def __init__(self, nombre):
@@ -202,10 +171,8 @@ class Persona:
     def saludar(self):
         print(f"Hola, soy {self.nombre}")
 ```
-</div>
-<div>
 
-`C#`
+
 ```csharp
 class Persona
 {
@@ -222,10 +189,9 @@ class Persona
     }
 }
 ```
-</div>
-</div>
 
 ---
+
 > 🔍 **NOTA**  
 > Otra manera de declarar una clase en python es haciendo uso del módulo `dataclass`
 > Ejemplo:
@@ -242,7 +208,7 @@ class Persona
 
 ---
 
-## Tipos de datos y estructuras de control
+# Tipos de datos y estructuras de control
 
 ---
 
@@ -258,10 +224,7 @@ class Persona
 
 ---
 
-<div class="columns">
-<div>
 
-`Python`
 ```python
 x = 10        # int
 pi = 3.14     # float
@@ -269,10 +232,6 @@ texto = "Hola"
 activo = True
 ```
 
-</div>
-<div>
-
-`C#`
 ```csharp
 int x = 10;
 double pi = 3.14;
@@ -280,8 +239,6 @@ string texto = "Hola";
 bool activo = true;
 ```
 
-</div>
-</div>
 
 ---
 
@@ -296,7 +253,7 @@ bool activo = true;
 
 ---
 
-`Python`
+
 ```python
 lista = [1, 2, 3]
 tupla = (1, 2)
@@ -304,7 +261,7 @@ dic = {"a": 1, "b": 2}
 conjunto = {1, 2, 3}
 ```
 
-`C#`
+
 ```csharp
 List<int> lista = new List<int> { 1, 2, 3 };
 Tuple<int, int> tupla = new Tuple<int, int>(1, 2);
@@ -312,12 +269,12 @@ Dictionary<string, int> dic = new Dictionary<string, int> { { "a", 1 }, { "b", 2
 HashSet<int> conjunto = new HashSet<int> { 1, 2, 3 };
 ```
 ---
+
 ### 🔁 3. Estructuras de control
 
 #### `if/else`
 
 ```python
-# Python
 if x > 5:
     print("Mayor")
 else:
@@ -325,7 +282,6 @@ else:
 ```
 
 ```csharp
-// C#
 if (x > 5)
 {
     Console.WriteLine("Mayor");
@@ -340,32 +296,24 @@ else
 
 #### `for`
 
-<div class="columns">
-<div>
 
-`Python`
 ```python
 for i in range(5):
     print(i)
 ```
-</div>
-<div>
 
-`C#`
+
 ```csharp
 for (int i = 0; i < 5; i++)
 {
     Console.WriteLine(i);
 }
 ```
-</div>
-</div>
 
 
 #### `while`
 
-<div class="columns">
-<div>
+
 
 ```python
 i = 0
@@ -373,8 +321,7 @@ while i < 5:
     print(i)
     i += 1
 ```
-</div>
-<div>
+
 
 ```csharp
 int i = 0;
@@ -384,18 +331,10 @@ while (i < 5)
     i++;
 }
 ```
-</div>
-</div>
 
 ---
 
 #### `switch`
-
-<div class="columns">
-<div>
-
-
-`Python`
 
 ```python
 # Python 3.10+
@@ -410,8 +349,7 @@ match x:
 
 > 🔸 Python ≥3.10 tiene match (similar a switch):
 
-</div>
-<div>
+
 
 `C#`
 
@@ -430,9 +368,6 @@ switch (x)
         break;
 }
 ```
-
-</div>
-</div>
 
 ---
 
@@ -462,6 +397,7 @@ var cuadrados = Enumerable.Range(0, 10)
 Console.WriteLine(string.Join(", ", cuadrados)); // 0, 1, 4, ..., 81
 ```
 ---
+
 > 🔍 **NOTA**   
 > -	Python es más conciso con list comprehensions.
 > -	C# usa Enumerable.Range y Select (LINQ).
