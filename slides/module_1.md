@@ -268,8 +268,6 @@ class Persona:
 ```
 </v-click>
 
-
-
 ---
 transition: slide-up
 layout: center
@@ -277,6 +275,9 @@ layout: center
 
 ## Tipos de datos y estructuras de control
 
+---
+transition: slide-left
+layout: center
 ---
 
 ### 1. Tipos de Datos Primitivos
@@ -326,6 +327,7 @@ bool activo = true;
 
 ---
 transition: slide-left
+layout: center
 ---
 
 ### 2. Estructuras de Datos Compuestas
@@ -369,10 +371,18 @@ HashSet<int> conjunto = new HashSet<int> { 1, 2, 3 };
 </v-click>
 
 ---
+transition: slide-left
+---
 
-### 🔁 3. Estructuras de control
+### 3. Estructuras de control
 
-#### `if/else`
+<br>
+
+`if/else`
+
+<v-click>
+<PythonLogo/>
+
 
 ```python
 if x > 5:
@@ -380,6 +390,12 @@ if x > 5:
 else:
     print("Menor o igual")
 ```
+
+</v-click>
+
+<v-click>
+<br>
+<CsharpLogo/>
 
 ```csharp
 if (x > 5)
@@ -391,16 +407,31 @@ else
     Console.WriteLine("Menor o igual");
 }
 ```
+</v-click>
 
 ---
+transition: slide-left
+---
 
-#### `for`
+### 3. Estructuras de control
+
+<br>
+
+`for`
+
+<v-click>
+<PythonLogo/>
 
 
 ```python
 for i in range(5):
     print(i)
 ```
+</v-click>
+
+<v-click>
+<br>
+<CsharpLogo/>
 
 
 ```csharp
@@ -409,10 +440,20 @@ for (int i = 0; i < 5; i++)
     Console.WriteLine(i);
 }
 ```
+</v-click>
 
+---
+transition: slide-left
+---
 
-#### `while`
+### 3. Estructuras de control
 
+<br>
+
+`while`
+
+<v-click>
+<PythonLogo/>
 
 
 ```python
@@ -421,6 +462,11 @@ while i < 5:
     print(i)
     i += 1
 ```
+</v-click>
+
+<v-click>
+<br>
+<CsharpLogo/>
 
 
 ```csharp
@@ -431,10 +477,24 @@ while (i < 5)
     i++;
 }
 ```
+</v-click>
 
 ---
+transition: slide-left
+---
 
-#### `switch`
+### 3. Estructuras de control
+
+<br>
+
+`switch`
+
+
+<div grid="~ cols-2 gap-2" m="t-2">
+
+<v-click>
+<div>
+<PythonLogo/>
 
 ```python
 # Python 3.10+
@@ -446,12 +506,12 @@ match x:
     case _:
         print("Otro")
 ```
+</div>
+</v-click>
 
-> 🔸 Python ≥3.10 tiene match (similar a switch):
-
-
-
-`C#`
+<v-click>
+<div>
+<CsharpLogo/>
 
 ```csharp
 // C# 8+
@@ -468,7 +528,14 @@ switch (x)
         break;
 }
 ```
+</div>
+</v-click>
 
+</div>
+
+
+---
+layout: center
 ---
 
 ## List comprehensions y desempaquetado de variables
@@ -533,3 +600,9 @@ Console.WriteLine(b);  // 2
 
 - [PEP-20](https://peps.python.org/pep-0020/)
 - [PEP-8](https://peps.python.org/pep-0008/)
+
+
+---
+
+# snippets
+<<< ../module_1/main.py py
