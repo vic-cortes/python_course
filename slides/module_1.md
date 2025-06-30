@@ -21,6 +21,11 @@ layout: center
 lineNumbers: true
 ---
 
+
+---
+src: ./pages/intro/main.md
+---
+
 # Módulo 1
 
 Introducción y sintaxis moderna
