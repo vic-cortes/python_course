@@ -1,29 +1,5 @@
-
 ---
-# You can also start simply with 'default'
-theme: default
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
-title: Welcome to Module 1
-# apply unocss classes to the current slide
-class: text-center
-# https://sli.dev/features/drawing
-drawings:
-  persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
-transition: slide-left
-# enable MDC Syntax: https://sli.dev/features/mdc
-mdc: true
-
 layout: center
-lineNumbers: true
----
-
-
----
-src: ./pages/intro/main.md
 ---
 
 # Módulo 1
@@ -113,7 +89,6 @@ En python se puede definir el tipo con el modulo <span v-mark.red="4"><code>typi
 > Más en siguientes módulos
 
 </div>
-
 
 ---
 transition: slide-left
@@ -608,6 +583,3 @@ Console.WriteLine(b);  // 2
 
 
 ---
-
-# snippets
-<<< ../module_1/main.py py
