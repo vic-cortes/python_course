@@ -1,6 +1,6 @@
 ---
 transition: slide-up
-layout: center
+layout: cover
 ---
 
 ## Tipos de datos y estructuras de control
@@ -20,7 +20,6 @@ layout: center
 | Decimal    | `float`                 | `float`, `double`         |
 | Cadena     | `str`                   | `string`                  |
 | Booleano   | `bool` (`True/False`)   | `bool` (`true/false`)     |
-
 
 ---
 transition: slide-left
@@ -56,7 +55,6 @@ bool activo = true;
 
 </v-click>
 
-
 ---
 transition: slide-left
 layout: center
@@ -70,7 +68,6 @@ layout: center
 | Tupla       | `tuple`              | `Tuple<T1, T2>`                   |
 | Diccionario | `dict`               | `Dictionary<TKey, TValue>`       |
 | Conjunto    | `set`                | `HashSet<T>`                      |
-
 
 ---
 transition: slide-left
@@ -265,7 +262,6 @@ switch (x)
 
 </div>
 
-
 ---
 layout: center
 ---
@@ -362,6 +358,3 @@ Console.WriteLine(b);  // 2
 
 - [PEP-20](https://peps.python.org/pep-0020/)
 - [PEP-8](https://peps.python.org/pep-0008/)
-
-
----

@@ -1,12 +1,12 @@
 ---
-layout: center
+layout: cover
+background: https://sli.dev/demo-cover.png
 ---
 
 # PEP 8
-
+Mejores práctas en python
 
 ---
-
 
 # 1. Indentación con 4 espacios
 
@@ -57,7 +57,6 @@ PI = 3.1416
 ```
 
 ---
-
 
 # 5. Líneas en blanco entre funciones y clases
 

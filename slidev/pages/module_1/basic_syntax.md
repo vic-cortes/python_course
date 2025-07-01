@@ -47,8 +47,6 @@ layout: center
 transition: slide-up
 ---
 
-
-
 # Sintaxis básica y diferencias con otros lenguajes
 
 ---
@@ -128,7 +126,6 @@ void Saludar(string nombre)
 }
 ```
 </v-click>
-
 
 ---
 transition: slide-left
