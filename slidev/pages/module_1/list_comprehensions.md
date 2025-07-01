@@ -51,3 +51,79 @@ Console.WriteLine(string.Join(", ", cuadrados)); // 0, 1, 4, ..., 81
 -	C# usa Enumerable.Range y Select (LINQ).
 
 </v-click>
+
+---
+
+## 1. List Comprehensions
+
+<br>
+
+
+<PythonLogo/>
+
+````md magic-move 
+```python
+
+# For loop
+cuadrados_pares = []
+
+for x in range(10):
+    if x % 2 == 0:
+        cuadrados_pares.append(x**2)
+
+print(cuadrados_pares)  # [0, 4, 16, 36, 64]
+```
+
+```python
+# List comprehensions
+# Crear una lista con los cuadrados del 0 al 9
+cuadrados_pares = [x**2 for x in range(10) if x % 2 == 0]
+print(cuadrados_pares)  # [0, 4, 16, 36, 64]
+```
+
+```python
+# List comprehensions
+# Crear una lista con los cuadrados del 0 al 9
+cuadrados_pares = [numero**2 for numero in range(10) if numero % 2 == 0]
+print(cuadrados_pares)  # [0, 4, 16, 36, 64]
+```
+
+```python
+# 🐍✨ Modern Python
+# List comprehensions
+# Crear una lista con los cuadrados del 0 al 9
+def is_even(number: int) -> bool:
+    """
+    Computes if a given number is even
+    """
+    return number % 2 == 0
+
+
+cuadrados_pares = [numero**2 for numero in range(10) if is_even(number)]
+print(cuadrados_pares)  # [0, 4, 16, 36, 64]
+```
+
+```python
+# List comprehensions
+# Crear una lista con los cuadrados del 0 al 9
+def is_even(number: int) -> bool:
+    """
+    Computes if a given number is even
+    """
+    return number % 2 == 0
+
+
+cuadrados_pares = [numero**2 for numero in range(10) if is_even(number) or number != 4]
+print(cuadrados_pares)  # [0, 4, 36, 64]
+```
+
+
+````
+---
+
+## Otros Comprehensions
+
+<br>
+
+- `set` Comprehensions
+- `dict` Comprehensions

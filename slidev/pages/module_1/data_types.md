@@ -274,6 +274,8 @@ layout: center
 src: ./list_comprehensions.md
 ---
 
+---
+
 ### 2. Desempaquetado de variables (Unpacking)
 
 <br>
