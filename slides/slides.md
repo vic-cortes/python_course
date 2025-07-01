@@ -1,4 +1,3 @@
-
 ---
 # You can also start simply with 'default'
 theme: default
@@ -6,7 +5,7 @@ theme: default
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://cover.sli.dev
 # some information about your slides (markdown enabled)
-title: Welcome to Module 1
+title: Welcome to Python Course
 # apply unocss classes to the current slide
 class: text-center
 # https://sli.dev/features/drawing

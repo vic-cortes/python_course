@@ -1,5 +1,6 @@
 ---
 layout: center
+transition: fade-out
 ---
 
 # Módulo 1
