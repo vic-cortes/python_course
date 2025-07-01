@@ -274,16 +274,28 @@ layout: center
 
 <br>
 
-<v-click>
 
 <PythonLogo/>
 
+````md magic-move 
 ```python
+
+# For loop
+cuadrados = []
+
+for x in range(10):
+    cuadrados.append(x**2)
+
+print(cuadrados)  # [0, 1, 4, 9, 16, ..., 81]
+```
+
+```python
+# List comprehensions
 # Crear una lista con los cuadrados del 0 al 9
 cuadrados = [x**2 for x in range(10)]
 print(cuadrados)  # [0, 1, 4, 9, 16, ..., 81]
 ```
-</v-click>
+````
 
 <br>
 
