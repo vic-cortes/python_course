@@ -66,9 +66,24 @@ transition: slide-left
 mensaje = "Hola mundo"
 edad = 25
 ```
+
+
 </div>
 
+<v-click>
+
+En python se puede definir el tipo con el modulo <span v-mark.red="2"><code>typing</code></span>. 
+
+```python
+mensaje: str = "Hola mundo"
+edad: int = 25
+```
+</v-click>
+
+
 <div v-click>
+
+<br>
 
 <CsharpLogo/>
 
@@ -80,14 +95,7 @@ int edad = 25;
 
 <br>
 
-<v-click>
-En python se puede definir el tipo con el modulo <span v-mark.red="4"><code>typing</code></span>. 
-
-</v-click>
-
 <div mt-20 v-click>
-
-> Más en siguientes módulos
 
 </div>
 
@@ -108,6 +116,8 @@ def saludar(nombre):
 ```
 </v-click>
 
+<br>
+
 <v-click>
 <CsharpLogo/>
 
@@ -125,6 +135,7 @@ transition: slide-left
 ---
 
 ### 3. Condicionales
+
 <br>
 <v-click>
 <PythonLogo/>
@@ -135,6 +146,8 @@ else:
     print("Es menor de edad")
 ```
 </v-click>
+
+<br>
 
 <v-click>
 <CsharpLogo/>
@@ -166,6 +179,8 @@ for i in range(5):
 ```
 
 </v-click>
+
+<br>
 
 <v-click>
 <CsharpLogo/>
@@ -292,6 +307,8 @@ activo = True
 ```
 
 </v-click>
+
+<br>
 
 <v-click>
 <CsharpLogo/>
@@ -525,15 +542,26 @@ layout: center
 
 ### 1. List Comprehensions
 
+<br>
+
+<v-click>
+
+<PythonLogo/>
+
 ```python
-# Python
 # Crear una lista con los cuadrados del 0 al 9
 cuadrados = [x**2 for x in range(10)]
 print(cuadrados)  # [0, 1, 4, 9, 16, ..., 81]
 ```
+</v-click>
+
+<br>
+
+<v-click>
+<CsharpLogo/>
 
 ```csharp
-// 🔸 C# (con LINQ)
+// (con LINQ)
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -544,15 +572,25 @@ var cuadrados = Enumerable.Range(0, 10)
 
 Console.WriteLine(string.Join(", ", cuadrados)); // 0, 1, 4, ..., 81
 ```
----
 
-> 🔍 **NOTA**   
-> -	Python es más conciso con list comprehensions.
-> -	C# usa Enumerable.Range y Select (LINQ).
+</v-click>
+
+<v-click>
+
+-	Python es más conciso con list comprehensions.
+-	C# usa Enumerable.Range y Select (LINQ).
+
+</v-click>
 
 ---
 
 ### 2. Desempaquetado de variables (Unpacking)
+
+<br>
+
+<v-click>
+
+<PythonLogo/>
 
 ```python
 # Desempaquetar una tupla
@@ -564,6 +602,14 @@ print(b)  # 2
 a, b = b, a
 ```
 
+</v-click>
+
+<br>
+
+<v-click>
+<CsharpLogo/>
+
+
 ```csharp
 // 🔸 C# (hasta C# 7.0+)
 // Desempaquetar tuplas (C# 7.0+)
@@ -574,6 +620,7 @@ Console.WriteLine(b);  // 2
 // Intercambio de valores
 (a, b) = (b, a);
 ```
+</v-click>
 
 ---
 
