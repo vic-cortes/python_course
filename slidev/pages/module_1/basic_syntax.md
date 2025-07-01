@@ -1,6 +1,7 @@
 ---
-layout: center
+layout: cover
 transition: fade-out
+background: https://cover.sli.dev
 ---
 
 # Módulo 1

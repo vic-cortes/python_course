@@ -1,16 +1,18 @@
 ---
 transition: slide-up
 layout: cover
+background: https://cover.sli.dev
 ---
 
-## Tipos de datos y estructuras de control
+# Tipos de datos
+y estructuras de control
 
 ---
 transition: slide-left
 layout: center
 ---
 
-### 1. Tipos de Datos Primitivos
+## 1. Tipos de Datos Primitivos
 
 <br>
 
@@ -25,7 +27,7 @@ layout: center
 transition: slide-left
 ---
 
-### 1. Tipos de Datos Primitivos
+## 2. Tipos de Datos Primitivos
 
 <br>
 <v-click>

@@ -4,7 +4,7 @@ background: https://sli.dev/demo-cover.png
 ---
 
 # PEP 8
-Mejores práctas en python
+Mejores prácticas en python
 
 ---
 

@@ -4,8 +4,6 @@ transition: slide-left
 
 # Acerca de mi
 
-Victor Cortés
-
 <v-click>
 
 - Instituto Tecnológico de Saltillo
@@ -49,7 +47,7 @@ transition: slide-left
 transition: slide-left
 ---
 
-# Prerequisitos
+# Pre requisitos
 
 - Conocimiento básico de `git`
     - Prefrerentemente cuenta de `github`
