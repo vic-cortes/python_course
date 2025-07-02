@@ -1,5 +1,3 @@
-
-
 ---
 transition: fade-out
 ---
@@ -7,7 +5,7 @@ transition: fade-out
 ## Filosofía de Python (Zen de Python)
 
 
-```python
+```python {lines:false}
 >>> import this
 
 """
@@ -242,6 +240,16 @@ Otra manera de declarar una clase en python es haciendo uso del módulo
 
 <v-click>
 
+````md magic-move
+```python
+class Persona:
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+    def saludar(self):
+        print(f"Hola, soy {self.nombre}")
+```
+
 ```python
 from dataclass import dataclass
 
@@ -252,4 +260,5 @@ class Persona:
     def saludar(self):
         print(f"Hola, soy {self.nombre}")
 ```
+````
 </v-click>

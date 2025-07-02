@@ -7,7 +7,17 @@ transition: slide-left
 <v-click>
 
 - Instituto Tecnológico de Saltillo
-    - Mecatrónica, <span v-mark.red="4">Maestría en Ingenieria Industrial</span>
+    - Mecatrónica, <span v-mark.red="1">Maestría en Ingenieria Industrial</span>
+        - Análisis de datos industriales. 
+        - Machine Learning, Estadística Multivariada
+
+</v-click>
+
+<v-click>
+
+- Open source
+    - <RLogo/>
+    - <PythonLogo/>
 
 </v-click>
 
@@ -25,7 +35,7 @@ transition: slide-left
 
 - Herramienta muy versatil
 - Fácil de aprender (relativamente)
-- Ejecución de proyectos o ideas mucho más rapido
+- Ejecución de proyectos o ideas mucho más rápido
 - Se puede implementar en una vasta varidad de ambientes
 
 
@@ -42,6 +52,19 @@ transition: slide-left
 - IoT
 - Machine Learning
 - Estadística
+- Web scraping
+- Telegram Chatbots
+
+---
+transition: slide-left
+---
+
+# Al finalizar el curso
+
+- Desarrollarán aplicaciones/scripts `python` modernos y "pythonicos"
+- Tendrán conocimiento de como estructurar un proyecto python
+- Aplicarán las mejores prácticas de PEP8
+- Utilizar librerías modernas
 
 ---
 transition: slide-left
@@ -54,13 +77,3 @@ transition: slide-left
 - Instalación de Python 3.12
 - VsCode o cualquier IDE
 
-
----
-transition: slide-left
----
-
-# Al finalizar el curso
-
-- Desarrollarán aplicaciones/scripts `python` modernos y "pythonicos"
-- Tendran conocimiento de como estructurar un proyecto
-- Aplicarán las mejores prácticas de PEP8

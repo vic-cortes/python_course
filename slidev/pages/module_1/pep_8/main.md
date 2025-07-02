@@ -32,9 +32,20 @@ def saludar(nombre):
 
 # 2. Longitud de línea menor a 79 caracteres
 
+````md magic-move 
 ```python
 mensaje = "Este mensaje está dentro del límite recomendado de caracteres."
 ```
+```python
+# ❌ Wrong
+mensaje = "Este mensaje está dentro del límite recomendado de caracteres. Rebasa el limite de caracteres"
+```
+```python
+# ✅ Good
+mensaje = "Este mensaje está dentro del límite recomendado de caracteres." \
+          "Rebasa el limite de caracteres"
+```
+````
 
 ---
 
