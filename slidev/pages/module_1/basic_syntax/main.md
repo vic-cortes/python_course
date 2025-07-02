@@ -1,12 +1,4 @@
----
-layout: cover
-transition: fade-out
-background: https://cover.sli.dev
----
 
-# Módulo 1
-
-Introducción y sintaxis moderna
 
 ---
 transition: fade-out

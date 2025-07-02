@@ -27,3 +27,7 @@ src: ./pages/intro/main.md
 ---
 src: ./pages/module_1/main.md
 ---
+
+---
+src: ./pages/module_2/main.md
+---
