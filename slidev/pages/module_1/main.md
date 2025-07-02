@@ -1,9 +1,9 @@
 ---
-src: ./basic_syntax.md
+src: ./basic_syntax/main.md
 ---
 
 ---
-src: ./pep_8.md
+src: ./pep_8/main.md
 ---
 
 ---
