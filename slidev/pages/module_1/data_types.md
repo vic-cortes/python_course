@@ -271,50 +271,15 @@ layout: center
 ## List comprehensions y desempaquetado de variables
 
 ---
-src: ./list_comprehensions.md
+src: ./_list_comprehensions.md
+---
+
+---
+src: ./unpacking.md
 ---
 
 ---
 
-### 2. Desempaquetado de variables (Unpacking)
-
-<br>
-
-<v-click>
-
-<PythonLogo/>
-
-```python
-# Desempaquetar una tupla
-a, b = (1, 2)
-print(a)  # 1
-print(b)  # 2
-
-# Intercambio de valores
-a, b = b, a
-```
-
-</v-click>
-
-<br>
-
-<v-click>
-<CsharpLogo/>
-
-
-```csharp
-// 🔸 C# (hasta C# 7.0+)
-// Desempaquetar tuplas (C# 7.0+)
-(int a, int b) = (1, 2);
-Console.WriteLine(a);  // 1
-Console.WriteLine(b);  // 2
-
-// Intercambio de valores
-(a, b) = (b, a);
-```
-</v-click>
-
----
 
 # Recursos
 

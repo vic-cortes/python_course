@@ -113,7 +113,7 @@ def is_even(number: int) -> bool:
     return number % 2 == 0
 
 
-cuadrados_pares = [numero**2 for numero in range(10) if is_even(number) or number != 4]
+cuadrados_pares = [numero**2 for numero in range(10) if is_even(number) and number != 4]
 print(cuadrados_pares)  # [0, 4, 36, 64]
 ```
 
@@ -121,9 +121,46 @@ print(cuadrados_pares)  # [0, 4, 36, 64]
 ````
 ---
 
-## Otros Comprehensions
+## Otros "Comprehensions"
 
 <br>
 
-- `set` Comprehensions
-- `dict` Comprehensions
+`set` Comprehensions
+
+
+````md magic-move 
+```python
+unique_words = set()
+
+for word in ["hola", "mundo", "python", "hola"]:
+    unique_words.add(word)
+
+# {"mundo", "hola", "python"}
+```
+
+```python
+unique_words = {word for word in ["hola", "mundo", "python", "hola"]}
+
+# {"mundo", "hola", "python"}
+```
+````
+
+`dict` Comprehensions
+
+
+````md magic-move
+```python
+word_lengths = {}
+
+for word in ["hola", "mundo", "python"]:
+    word_lengths[word] = len(word)
+
+# {"hola": 4, "mundo": 5, "python": 6}
+```
+```python
+word_lengths = {word: len(word) for word in ["hola", "mundo", "python"]}
+
+# {"hola": 4, "mundo": 5, "python": 6}
+```
+
+````
