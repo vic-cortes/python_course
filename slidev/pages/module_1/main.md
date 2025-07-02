@@ -7,5 +7,5 @@ src: ./pep_8.md
 ---
 
 ---
-src: ./data_types.md
+src: ./data_types/main.md
 ---
