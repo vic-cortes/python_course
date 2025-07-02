@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "[MODULE_1]: Exercise Script",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/module_1/excercise.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
