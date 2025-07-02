@@ -19,3 +19,9 @@ src: ./pep_8/main.md
 ---
 src: ./data_types/main.md
 ---
+
+---
+layout: center
+---
+
+# Ejercicio
