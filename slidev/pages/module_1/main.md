@@ -25,3 +25,7 @@ layout: center
 ---
 
 # Ejercicio
+
+---
+src: ./recap.md
+---
