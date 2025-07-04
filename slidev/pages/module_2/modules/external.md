@@ -109,14 +109,168 @@ for url in urls:
     print(f"URL: {url} - Status: {response.status_code}")
 
 session.close()
+```
+```python
+import json
 
-# Download file example
-print("\n=== Download File ===")
+import requests
+
 file_url = "https://httpbin.org/json"
 response = requests.get(file_url)
+
 if response.status_code == 200:
     with open("downloaded_data.json", "wb") as file:
         file.write(response.content)
     print("File downloaded successfully")
 ```
 ````
+
+---
+
+# `beautifulsoup4` – Scraping de páginas web.
+
+````md magic-move
+```bash
+pip install beautifulsoup4
+```
+
+```python
+import requests
+from bs4 import BeautifulSoup
+
+# Get webpage content
+print("=== Web Scraping with BeautifulSoup ===")
+url = "https://quotes.toscrape.com/"
+response = requests.get(url)
+soup = BeautifulSoup(response.content, 'html.parser')
+
+# Find all quotes
+quotes = soup.find_all('div', class_='quote')
+print(f"Found {len(quotes)} quotes on the page")
+```
+```python
+# Extract specific information
+print("\n=== Extracting Quotes ===")
+for i, quote in enumerate(quotes[:3], 1):  # Show first 3 quotes
+    text = quote.find('span', class_='text').get_text()
+    author = quote.find('small', class_='author').get_text()
+    tags = [tag.get_text() for tag in quote.find_all('a', class_='tag')]
+    
+    print(f"Quote {i}:")
+    print(f"  Text: {text}")
+    print(f"  Author: {author}")
+    print(f"  Tags: {', '.join(tags)}")
+    print()
+
+# Working with HTML structure
+print("=== HTML Structure Navigation ===")
+# Find title
+title = soup.find('title').get_text()
+print(f"Page title: {title}")
+```
+
+```python
+# Find all links
+links = soup.find_all('a')
+print(f"Total links found: {len(links)}")
+
+# Get specific links
+nav_links = soup.find_all('a', class_='tag')
+print(f"Tag links: {[link.get_text() for link in nav_links[:5]]}")
+
+# Using CSS selectors
+print("\n=== Using CSS Selectors ===")
+# Select quotes using CSS selector
+css_quotes = soup.select('div.quote')
+print(f"Quotes found with CSS selector: {len(css_quotes)}")
+
+# Select author names
+authors = soup.select('small.author')
+author_names = [author.get_text() for author in authors]
+print(f"Authors: {set(author_names)}")  # Use set to remove duplicates
+```
+```python
+# Working with attributes
+print("\n=== Working with Attributes ===")
+# Get href attributes from links
+quote_links = soup.find_all('a', string='(about)')
+for link in quote_links[:3]:
+    href = link.get('href')
+    print(f"Author link: {href}")
+```
+
+```python
+# Parsing HTML string directly
+print("\n=== Parsing HTML String ===")
+html_string = """
+<div class="product">
+    <h2>Laptop</h2>
+    <p class="price">$999.99</p>
+    <p class="description">High-performance laptop</p>
+    <ul class="features">
+        <li>16GB RAM</li>
+        <li>512GB SSD</li>
+        <li>Intel i7</li>
+    </ul>
+</div>
+"""
+
+product_soup = BeautifulSoup(html_string, 'html.parser')
+product_name = product_soup.find('h2').get_text()
+price = product_soup.find('p', class_='price').get_text()
+features = [li.get_text() for li in product_soup.find_all('li')]
+
+print(f"Product: {product_name}")
+print(f"Price: {price}")
+print(f"Features: {', '.join(features)}")
+```
+```python
+# Error handling
+try:
+    # Try to find an element that doesn't exist
+    nonexistent = soup.find('div', class_='nonexistent')
+    if nonexistent:
+        print(nonexistent.get_text())
+    else:
+        print("Element not found - returned None")
+        
+    # Safe way to get text
+    safe_text = soup.find('div', class_='nonexistent')
+    if safe_text:
+        print(safe_text.get_text())
+    else:
+        print("Using safe check - element doesn't exist")
+        
+except AttributeError as e:
+    print(f"AttributeError: {e}")
+
+# Pretty print HTML
+sample_html = "<div><p>Hello</p><span>World</span></div>"
+pretty_soup = BeautifulSoup(sample_html, 'html.parser')
+print("Original:", sample_html)
+print("Pretty printed:")
+print(pretty_soup.prettify())
+```
+````
+
+---
+
+# `flask` - Crear aplicaciones web livianas.
+
+````md magic-move
+```bash
+pip install flask
+```
+```python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def inicio():
+    return "Hola desde Flask!"
+
+# app.run()  # Solo ejecutar si corres la app
+```
+````
+
