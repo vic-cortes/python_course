@@ -5,7 +5,6 @@ background: https://cover.sli.dev
 ---
 
 # Módulo 2
-
 Funciones, módulos y manejo de errores
 
 ---

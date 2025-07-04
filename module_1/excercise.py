@@ -15,6 +15,8 @@ for file_path in slidev_dir.rglob("*"):
     else:
         all_dict[file_path.suffix].append(file_path)
 
+    all_files.append(file_path)
+
 
 all_js_files = [file for file in all_files if file.suffix == ".js"]
 all_js_files_2 = [file for file in all_files if str(file).endswith(".js")]

@@ -43,11 +43,23 @@ def saludar(nombre: str) -> None:
     print(f"Hola, {nombre}")
 
 saludar("Lucía")  # Hola, Lucía
+# f string son introducidas en python 3.8
+```
+
+```python
+# 3.7
+def saludar(nombre: str) -> None:
+    """
+    Función que imprime saludo con nombre
+    """
+    print("Hola, {}".format(nombre))
+
+saludar("Lucía")  # Hola, Lucía
 ```
 ````
 
 
-> `f-strings` fueron introducidas en pyhthon 3.8
+
 
 ---
 
@@ -64,7 +76,7 @@ saludar("Luis")    # Hola, Luis
 
 ```python
 # 🐍✨ Pythonic
-def saludar(nombre : str ="amigo") -> None:
+def saludar(nombre: str ="amigo") -> None:
     """
     Función que acepta nombre pero tiene valor
     por defecto.
