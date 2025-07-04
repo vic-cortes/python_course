@@ -11,3 +11,7 @@ Funciones, módulos y manejo de errores
 ---
 src: ./functions/main.md
 ---
+
+---
+src: ./modules/internal.md
+---
