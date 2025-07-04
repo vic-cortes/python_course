@@ -4,6 +4,16 @@ from pydantic import BaseModel, EmailStr, field_validator, validator
 
 
 class Usuario(BaseModel):
+    """
+    # Title Pydantic Example
+
+    Modelo de usuario que valida los campos:
+    - nombre: debe tener al menos 2 caracteres y estar en formato título.
+    - email: debe ser un email válido.
+    - edad: debe ser un entero entre 0 y 150.
+    - activo: booleano que indica si el usuario está activo (por defecto True).
+    """
+
     nombre: str
     email: EmailStr
     edad: Optional[int] = None
