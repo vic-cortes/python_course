@@ -120,3 +120,83 @@ fecha_desde_timestamp = datetime.fromtimestamp(timestamp)
 print(f"Desde timestamp: {fecha_desde_timestamp}")
 ```
 ````
+
+---
+
+# `json` - Leer y escribir datos en formato JSON.
+
+````md magic-move
+
+```python
+import json
+
+# Create a Python dictionary with user data
+user_data = {
+    "name": "John Doe",
+    "age": 30,
+    "email": "john.doe@example.com",
+    "skills": ["Python", "JavaScript", "SQL"],
+    "is_active": True,
+    "address": {
+        "street": "123 Main St",
+        "city": "New York",
+        "zip": "10001"
+    }
+}
+
+print("Original Python dictionary:")
+print(user_data)
+```
+```python
+import json
+
+# Convert Python dict to JSON string
+json_string = json.dumps(user_data, indent=2)
+print("\nConverted to JSON string:")
+print(json_string)
+
+# Save to JSON file
+with open("user_data.json", "w") as file:
+    json.dump(user_data, file, indent=2)
+
+print("\nData saved to 'user_data.json' file")
+
+# Read from JSON file
+with open("user_data.json", "r") as file:
+    loaded_data = json.load(file)
+print("\nData loaded from file:")
+print(f"Name: {loaded_data['name']}")
+print(f"Skills: {', '.join(loaded_data['skills'])}")
+```
+
+```python
+import json
+
+# Convert JSON string back to Python dict
+json_text = '{"product": "Laptop", "price": 899.99, "in_stock": true}'
+parsed_data = json.loads(json_text)
+print(f"\nParsed JSON: {parsed_data}")
+print(f"Product: {parsed_data['product']}")
+print(f"Price: ${parsed_data['price']}")
+
+# Handle JSON with special characters
+data_with_special = {
+    "message": "Hello, world! 🌍",
+    "unicode_text": "café naïve résumé"
+}
+
+json_with_unicode = json.dumps(data_with_special, ensure_ascii=False, indent=2)
+print(f"\nJSON with Unicode characters:")
+print(json_with_unicode)
+```
+```python
+import json
+
+# Error handling
+try:
+    invalid_json = '{"name": "John", "age": 30,}'  # Invalid JSON (trailing comma)
+    json.loads(invalid_json)
+except json.JSONDecodeError as e:
+    print(f"\nJSON Error: {e}")
+```
+````

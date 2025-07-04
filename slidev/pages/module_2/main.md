@@ -15,3 +15,7 @@ src: ./functions/main.md
 ---
 src: ./modules/internal.md
 ---
+
+---
+src: ./modules/external.md
+---
