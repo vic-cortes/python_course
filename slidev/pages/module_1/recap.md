@@ -15,5 +15,3 @@ layout: cover
 <<< ../../../module_1/excercise/step_3.py py {*|7|4|28|11,12,28|28|*}
 
 ````
-
----

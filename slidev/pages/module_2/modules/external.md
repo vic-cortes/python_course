@@ -252,6 +252,32 @@ print("Pretty printed:")
 print(pretty_soup.prettify())
 ```
 ````
+---
+
+# `pydantic` - Validación de tipado automático
+
+````md magic-move
+```bash
+pip install pydantic
+```
+
+```python
+from pydantic import BaseModel
+
+class Usuario(BaseModel):
+    nombre: str
+    edad: int
+    email: str
+
+datos = {"nombre": "Ana", "edad": "30", "email": "ana@mail.com"}
+
+usuario = Usuario(**datos)
+print(usuario)
+print(usuario.edad + 5)  # edad es convertido a entero automáticamente
+```
+````
+
+
 
 ---
 
