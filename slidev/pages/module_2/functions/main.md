@@ -80,6 +80,14 @@ saludar("Luis")    # Hola, Luis
 
 # 4. `*args`: argumentos variables (tupla)
 
+````md magic-move
+```python
+def sumar(first, second, third):
+    total = sum([first, second, third])
+    print(f"Total: {total}")
+
+sumar(1, 2, 3)  # Total: 6
+```
 ```python
 def sumar(*numeros):
     total = sum(numeros)
@@ -87,6 +95,14 @@ def sumar(*numeros):
 
 sumar(1, 2, 3)  # Total: 6
 ```
+```python
+def sumar(*args):
+    total = sum(args)
+    print(f"Total: {total}")
+
+sumar(1, 2, 3)  # Total: 6
+```
+````
 
 ---
 
