@@ -52,7 +52,7 @@ class Config:
 
 # Comparación de Estructuras
 
-```python {all|1-7|9-14|16-22|all}
+```python {all|1-7|9-15|16-23|all}
 # Clase tradicional
 class Book:
     def __init__(self, title: str, author: str, year: int):
@@ -82,11 +82,12 @@ class Library:
 
 # Post-init y Validación
 
-```python {all|1-6|8-13|15-20|all}
+```python {all|1-7|9-16|18-23|all}
 @dataclass
 class Rectangle:
     width: float
     height: float
+
     def __post_init__(self):
         self.area = self.width * self.height
 
@@ -94,12 +95,15 @@ class Rectangle:
 class Product:
     name: str
     price: float
+
     def __post_init__(self):
         if self.price < 0:
             raise ValueError("Price cannot be negative")
 
 from dataclasses import field
+
 @dataclass
 class Cart:
     items: List[Product] = field(default_factory=list)
     total: float = field(init=False, default=0)
+```

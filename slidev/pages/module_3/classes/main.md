@@ -73,3 +73,54 @@ class BankAccount:
     def balance(self, value):
         """Setter para el balance"""
         self.__balance = max(0, value)
+```
+
+---
+
+# Clases Abstractas
+
+````md magic-move
+```python
+# Clase base simple
+class Animal:
+    def make_sound(self):
+        pass  # No implementación
+```
+
+```python
+# Clase base con método abstracto implícito
+class Animal:
+    def make_sound(self):
+        raise NotImplementedError("Subclass must implement abstract method")
+```
+
+```python
+# Clase abstracta con ABC
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def make_sound(self):
+        """Este método debe ser implementado por las subclases"""
+        pass
+```
+
+```python
+# Implementación concreta
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def make_sound(self):
+        """Este método debe ser implementado por las subclases"""
+        pass
+
+class Dog(Animal):
+    def make_sound(self):
+        return "Woof!"
+
+# Esta línea causaría error:
+# animal = Animal()  # TypeError: Can't instantiate abstract class
+dog = Dog()  # Esto sí funciona
+```
+````
