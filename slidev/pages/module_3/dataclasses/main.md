@@ -11,9 +11,10 @@ layout: two-cols
 
 ::right::
 
-```python {all|1-2|4-7|9-12|all}
-from dataclasses import dataclass
+```python {all|1-3|5-8|10-14|all}
 from typing import List
+
+from dataclasses import dataclass
 
 @dataclass
 class Student:
@@ -29,30 +30,73 @@ class StudentTraditional:
 
 ---
 
-# Ventajas de Dataclasses
+# Ventajas de Dataclasses vs Clases Tradicionales
 
-```python {all|1-4|6-9|11-14|all}
-@dataclass(frozen=True)  # Inmutable
-class Point:
-    x: float
-    y: float
+| Característica | Dataclass | Clase Tradicional |
+|----------------|-----------|-------------------|
+| Código boilerplate | Mínimo | Extenso |
+| Métodos especiales | Automáticos | Manual |
+| Inmutabilidad | Soportada (frozen=True) | Manual |
+| Comparaciones | Automáticas (order=True) | Manual |
+| Type hints | Obligatorios | Opcionales |
 
-@dataclass(order=True)  # Habilita comparaciones
-class Score:
-    points: int
-    player: str
+---
 
-@dataclass(repr=True)  # Representación automática
-class Config:
+```python {all|1-5|7-13|15-21|all}
+# Clase tradicional (mucho código)
+class Person:
+    def __init__(self, name: str, age: int):
+        self.name = name
+        self.age = age
+    
+    def __eq__(self, other):
+        if not isinstance(other, Person):
+            return NotImplemented
+        return (
+            self.name == other.name and 
+            self.age == other.age
+        )
+
+# Dataclass (código conciso)
+@dataclass(frozen=True, order=True)
+class PersonDataclass:
+    name: str
+    age: int
+    # __eq__, __lt__, etc. generados automáticamente
+    # Inmutabilidad garantizada por frozen=True
+```
+
+---
+
+# Ejemplos de Uso
+
+```python {all|1-7|9-13|15-19|all}
+# 1. Configuración con valores por defecto
+@dataclass
+class ServerConfig:
     host: str = "localhost"
     port: int = 8080
+    debug: bool = False
+    timeout: float = 30.0
+
+# 2. Data Transfer Objects (DTO)
+@dataclass
+class UserDTO:
+    id: int
+    username: str
+
+# 3. Value Objects
+@dataclass(frozen=True)
+class Money:
+    amount: Decimal
+    currency: str
 ```
 
 ---
 
 # Comparación de Estructuras
 
-```python {all|1-7|9-15|16-23|all}
+```python {all|1-7|9-14|16-22|all}
 # Clase tradicional
 class Book:
     def __init__(self, title: str, author: str, year: int):
