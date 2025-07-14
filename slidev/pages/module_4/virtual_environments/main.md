@@ -6,8 +6,9 @@ layout: two-cols
 
 - ¿Qué son los entornos virtuales?
 - Beneficios de usar entornos virtuales
-- venv (módulo incorporado)
-- Poetry (herramienta moderna)
+- `venv` (módulo incorporado)
+- `poetry` (herramienta moderna)
+- `uv` (herramienta moderna desarrollada en Rust)
 
 ::right::
 
