@@ -67,9 +67,27 @@ flake8 = "^4.0.1"
 
 ---
 
-# Comparación: venv vs Poetry
+# UV: Gestor de Paquetes Ultra Rápido
 
-<div class="grid grid-cols-2 gap-4">
+```bash {all|1-2|4-5|7-8|10-11|all}
+# Instalar UV
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Crear entorno virtual
+uv venv
+
+# Instalar dependencias
+uv pip install requests pandas
+
+# Instalar desde requirements.txt
+uv pip install -r requirements.txt
+```
+
+---
+
+# Comparación: venv vs Poetry vs UV
+
+<div class="grid grid-cols-3 gap-4">
 
 <div>
 <h3>venv</h3>
@@ -87,6 +105,15 @@ flake8 = "^4.0.1"
 - Resolución de dependencias avanzada
 - Publicación de paquetes
 - Ideal para proyectos medianos/grandes
+</div>
+
+<div>
+<h3>UV</h3>
+
+- Desarrollado en Rust (ultra rápido)
+- Compatible con pip
+- Caché binario optimizado
+- Ideal para proyectos de cualquier tamaño
 </div>
 
 </div>
