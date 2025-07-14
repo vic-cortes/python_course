@@ -96,7 +96,7 @@ class Money:
 
 # Comparación de Estructuras
 
-```python {all|1-7|9-14|16-22|all}
+```python {all|1-7|9-15|17-23|all}
 # Clase tradicional
 class Book:
     def __init__(self, title: str, author: str, year: int):

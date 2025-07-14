@@ -71,7 +71,7 @@ class Temperature:
         return (self._celsius * 9/5) + 32
 ```
 
----
+<!-- ---
 
 # Decoradores con Argumentos
 
@@ -90,4 +90,4 @@ def print_message(msg):
     print(msg)
 
 # Equivalente a:
-# print_message = repeat(times=3)(print_message)
+# print_message = repeat(times=3)(print_message) -->
