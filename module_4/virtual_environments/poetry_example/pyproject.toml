@@ -10,9 +10,6 @@ requires-python = ">=3.10"
 dependencies = [
 ]
 
-[tool.poetry]
-packages = [{include = "poetry_example", from = "src"}]
-
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
