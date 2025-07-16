@@ -77,14 +77,26 @@ def test_divide_by_zero(calculator):
 # Mocking examples
 def test_api_with_mock_calculator(mocker):
     """Test CalculatorAPI with a mocked Calculator."""
-    mock_calc = mocker.Mock()
+    # Create mock calculator with configured methods
+    mock_calc = mocker.Mock(spec=Calculator)
     mock_calc.add.return_value = 42
+    mock_calc.divide.return_value = 5
 
     api = CalculatorAPI(mock_calc)
-    result = api.perform_calculation("add", 5, 5)
 
+    # Test add operation
+    result = api.perform_calculation("add", 5, 5)
     assert result == 42
     mock_calc.add.assert_called_once_with(5, 5)
+
+    # Test divide operation
+    result = api.perform_calculation("divide", 10, 2)
+    assert result == 5
+    mock_calc.divide.assert_called_once_with(10, 2)
+
+    # Test invalid operation
+    with pytest.raises(ValueError):
+        api.perform_calculation("multiply", 5, 5)
 
 
 # Async test example

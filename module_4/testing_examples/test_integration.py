@@ -12,7 +12,10 @@ class TestCalculatorIntegration:
     @pytest.fixture
     def calculator(self):
         """Provide a Calculator instance."""
-        return Calculator()
+        calc = Calculator()
+        yield calc
+        # Clean up after each test
+        calc.clear_history()
 
     @pytest.fixture
     def api(self, calculator):
@@ -37,12 +40,27 @@ class TestCalculatorIntegration:
         assert "Division by zero" in str(exc_info.value)
 
     @pytest.mark.asyncio
-    async def test_async_operations(self, calculator):
+    async def test_async_operations(self, calculator: Calculator):
         """Test multiple async operations."""
-        # Perform multiple async operations concurrently
-        tasks = [calculator.delayed_add(i, i, delay=0.01) for i in range(5)]
+        # Create a list of numbers to add
+        numbers = list(range(5))
+
+        # Create tasks for concurrent execution
+        tasks = []
+        for i in numbers:
+            # Use shorter delay for tests
+            task = calculator.delayed_add(i, i, delay=0.01)
+            tasks.append(task)
+
+        # Execute all tasks concurrently
         results = await asyncio.gather(*tasks)
 
-        # Verify results
-        assert results == [0, 2, 4, 6, 8]
-        assert len(calculator.history) == 5
+        # Verify results (each number added to itself)
+        expected = [i + i for i in numbers]
+        assert results == expected
+
+        # Verify history was properly maintained
+        assert len(calculator.history) == len(numbers)
+        for i, num in enumerate(numbers):
+            expected_entry = f"Added {num} + {num} = {num * 2}"
+            assert expected_entry in calculator.history
