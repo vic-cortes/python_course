@@ -3,6 +3,8 @@
 import asyncio
 from typing import Union
 
+CalculatorDigitT = Union[int, float]
+
 
 class Calculator:
     """Calculator class with basic arithmetic operations and some async capabilities."""
@@ -10,13 +12,13 @@ class Calculator:
     def __init__(self):
         self.history = []
 
-    def add(self, a: Union[int, float], b: Union[int, float]) -> Union[int, float]:
+    def add(self, a: CalculatorDigitT, b: CalculatorDigitT) -> CalculatorDigitT:
         """Add two numbers and store the operation in history."""
         result = a + b
         self.history.append(f"Added {a} + {b} = {result}")
         return result
 
-    def divide(self, a: Union[int, float], b: Union[int, float]) -> Union[int, float]:
+    def divide(self, a: CalculatorDigitT, b: CalculatorDigitT) -> CalculatorDigitT:
         """Divide a by b, raising ValueError for division by zero."""
         if b == 0:
             raise ValueError("Division by zero is not allowed")
@@ -29,8 +31,8 @@ class Calculator:
         self.history = []
 
     async def delayed_add(
-        self, a: Union[int, float], b: Union[int, float], delay: float = 0.1
-    ) -> Union[int, float]:
+        self, a: CalculatorDigitT, b: CalculatorDigitT, delay: float = 0.1
+    ) -> CalculatorDigitT:
         """Asynchronously add two numbers after a delay."""
         await asyncio.sleep(delay)
         return self.add(a, b)
@@ -43,8 +45,8 @@ class CalculatorAPI:
         self.calculator = calculator
 
     def perform_calculation(
-        self, operation: str, a: Union[int, float], b: Union[int, float]
-    ) -> Union[int, float]:
+        self, operation: str, a: CalculatorDigitT, b: CalculatorDigitT
+    ) -> CalculatorDigitT:
         """Perform a calculation based on the operation type."""
         if operation == "add":
             return self.calculator.add(a, b)

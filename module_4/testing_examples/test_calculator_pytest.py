@@ -32,7 +32,7 @@ def test_calculator_initial_state(calculator):
     assert len(calculator.history) == 0
 
 
-def test_calculator_add(calculator):
+def test_calculator_add(calculator: Calculator):
     """Test the add method."""
     result = calculator.add(1, 1)
     assert result == 2
@@ -49,7 +49,7 @@ def test_calculator_add(calculator):
         (1.5, 2.5, 4.0),
     ],
 )
-def test_add_parameterized(calculator, a, b, expected):
+def test_add_parameterized(calculator: Calculator, a, b, expected):
     """Test add method with various inputs."""
     assert calculator.add(a, b) == expected
 
