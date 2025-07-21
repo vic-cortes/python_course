@@ -22,6 +22,19 @@
       "args": ["run", "--no-debugger", "--no-reload", "--port", "5000"],
       "jinja": true,
       "justMyCode": true
+    },
+    {
+      "name": "[PROJECT] Web Scraper",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/project/main.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "python": "${workspaceFolder}/project/.venv/bin/python",
+      "cwd": "${workspaceFolder}/project",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/project"
+      }
     }
   ]
 }

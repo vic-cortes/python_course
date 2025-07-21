@@ -5,10 +5,14 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "beautifulsoup4>=4.13.4",
     "requests>=2.32.4",
+    "selenium>=4.34.2",
 ]
 
 [dependency-groups]
 dev = [
+    "ipykernel>=6.29.5",
     "ipython>=8.37.0",
+    "notebook>=7.4.4",
 ]
