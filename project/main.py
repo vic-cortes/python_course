@@ -59,3 +59,48 @@ response = requests.get(
 )
 
 print(response)
+
+import os
+
+from constants import GECKO_DRIVER_PATH
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.webdriver import DesiredCapabilities
+from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
+LOAD_TIMEOUT = 10
+STRATEGY = "none"
+
+options = Options()
+options.headless = False  # No mostrar explorador
+
+options.set_preference("dom.webdriver.enabled", False)
+options.set_preference("useAutomationExtension", False)
+options.set_preference(
+    "general.useragent.override",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Firefox/110.0",
+)
+
+
+capabilities = DesiredCapabilities.FIREFOX
+capabilities["pageLoadStrategy"] = STRATEGY
+
+
+service = Service(executable_path=GECKO_DRIVER_PATH, log_path=os.path.devnull)
+driver = webdriver.Firefox(options=options, service=service)
+driver.set_page_load_timeout(LOAD_TIMEOUT)
+
+driver.get(HOME_DEPOT_URL)
+
+# Esperar a que un elemento importante esté presente
+WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located((By.CSS_SELECTOR, "div#productCard_a_1_2044157"))
+)
+html = BeautifulSoup(driver.page_source, "html.parser")
+products_container = html.find("div", class_="product-listing-container")
+
+driver.quit()
