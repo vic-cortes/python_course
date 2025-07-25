@@ -15,4 +15,5 @@ dev = [
     "ipykernel>=6.29.5",
     "ipython>=8.37.0",
     "notebook>=7.4.4",
+    "ruff>=0.12.5",
 ]

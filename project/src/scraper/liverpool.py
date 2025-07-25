@@ -1,4 +1,5 @@
 import os
+from dataclasses import dataclass
 
 from bs4 import BeautifulSoup
 from bs4.element import Tag
@@ -11,42 +12,34 @@ from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-from .constants import GECKO_DRIVER_PATH
+# from .constants import GECKO_DRIVER_PATH
 from .utils import get_firefox_driver
 
-BASE_URL = "https://www.liverpool.com.mx/tienda?s=lavadoras"
-STRATEGY = "none"
 
+@dataclass
+class LiverpoolScraper:
+    driver: webdriver.Firefox
 
-def get_product_links(driver: webdriver.Firefox) -> list[str]:
-    """
-    Get product links from the Liverpool website.
-    """
-    driver.get(BASE_URL)
-    wait = WebDriverWait(driver, 10)
+    BASE_URL = "https://www.liverpool.com.mx/tienda?s=lavadoras"
 
-    try:
-        wait.until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, "div.product-item"))
-        )
-    except TimeoutException:
-        print("Timeout while waiting for product items to load.")
-        return []
+    def get_product_links(self) -> list[str]:
+        """
+        Get product links from the Liverpool website.
+        """
+        self.driver.get(self.BASE_URL)
 
-    soup = BeautifulSoup(driver.page_source, "html.parser")
-    product_items = soup.select("div.product-item")
+        soup = BeautifulSoup(self.driver.page_source, "html.parser")
+        product_items = soup.select("div.product-item")
 
-    product_links = []
-    for item in product_items:
-        link_tag = item.select_one("a.product-item-link")
-        if link_tag and isinstance(link_tag, Tag):
-            product_links.append(link_tag["href"])
+        product_links = []
+        for item in product_items:
+            link_tag = item.select_one("a.product-item-link")
+            if link_tag and isinstance(link_tag, Tag):
+                product_links.append(link_tag["href"])
 
-    return product_links
+        return product_links
 
 
 if __name__ == "__main__":
     driver = get_firefox_driver()
-    product_links = get_product_links(driver)
-    print(product_links)
-    driver.quit()
+    scraper = LiverpoolScraper(driver=driver)
