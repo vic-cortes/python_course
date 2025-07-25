@@ -7,5 +7,12 @@ if __name__ == "__main__":
 
     product_links = scraper.get_product_links()
 
+    all_data = []
+
     for link in product_links:
-        LiverpoolDetailScraper(driver=driver, product_url=link)
+        detail_scraper = LiverpoolDetailScraper(driver=driver, detail_url=link)
+        product_details = detail_scraper.get_product_details()
+        all_data.append(product_details)
+
+    print(all_data)
+    driver.quit()
