@@ -5,10 +5,7 @@ from dataclasses import dataclass
 from bs4 import BeautifulSoup
 from bs4.element import Tag
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import NoSuchElementException
 
 from .base import BaseScraper
 from .utils import normalize_string
@@ -18,7 +15,7 @@ PRODUCT_URL = f"{BASE_URL}/tienda?s=lavadoras"
 
 
 @dataclass
-class LiverpoolScraper(BaseScraper):
+class ParentScraper(BaseScraper):
     driver: webdriver.Firefox
 
     def product_node(self, item: Tag) -> str:
@@ -46,7 +43,7 @@ class LiverpoolScraper(BaseScraper):
         product_links = []
 
         for item in product_items:
-            product_tag = LiverpoolParentProductTag(item)
+            product_tag = ParentProductTag(item)
             full_link = f"{BASE_URL}{product_tag.href}"
             product_links.append(full_link)
 
@@ -56,7 +53,7 @@ class LiverpoolScraper(BaseScraper):
 
 
 @dataclass
-class LiverpoolParentProductTag:
+class ParentProductTag:
     node: Tag
 
     @property
@@ -68,7 +65,7 @@ class LiverpoolParentProductTag:
 
 
 @dataclass
-class LiverpoolDetailScraper(BaseScraper):
+class DetailScraper(BaseScraper):
     driver: webdriver.Firefox
     detail_url: str
 
