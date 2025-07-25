@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import os
 from dataclasses import dataclass
 
@@ -22,6 +24,18 @@ class LiverpoolScraper:
 
     BASE_URL = "https://www.liverpool.com.mx/tienda?s=lavadoras"
 
+    def product_node(self, item: Tag) -> str:
+        """
+        Extract product link from a product item.
+        """
+        try:
+            link_tag = item.select_one("a.product-item-link")
+            if link_tag and isinstance(link_tag, Tag):
+                return link_tag["href"]
+            return ""
+        except NoSuchElementException:
+            return ""
+
     def get_product_links(self) -> list[str]:
         """
         Get product links from the Liverpool website.
@@ -29,15 +43,25 @@ class LiverpoolScraper:
         self.driver.get(self.BASE_URL)
 
         soup = BeautifulSoup(self.driver.page_source, "html.parser")
-        product_items = soup.select("div.product-item")
+        product_items = soup.select("li.m-product__card")
 
         product_links = []
         for item in product_items:
-            link_tag = item.select_one("a.product-item-link")
-            if link_tag and isinstance(link_tag, Tag):
-                product_links.append(link_tag["href"])
+            product_tag = LiverpoolProductTag(item)
 
         return product_links
+
+
+@dataclass
+class LiverpoolProductTag:
+    node: Tag
+
+    @property
+    def href(self) -> str:
+        return self.node.find("a")["href"]
+
+    def get_all_article_info_node(self) -> Tag:
+        return self.node.find("figcaption")
 
 
 if __name__ == "__main__":
