@@ -10,6 +10,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
+from .base import BaseScraper
 from .utils import normalize_string
 
 BASE_URL = "https://www.liverpool.com.mx"
@@ -17,21 +18,8 @@ PRODUCT_URL = f"{BASE_URL}/tienda?s=lavadoras"
 
 
 @dataclass
-class LiverpoolScraper:
+class LiverpoolScraper(BaseScraper):
     driver: webdriver.Firefox
-
-    def _ensure_key_product_tags_exists(self) -> None:
-        """
-        Wait until a product tag is present on the page.
-        """
-        TIMEOUT = 5  # seconds
-        # wait until a tag with class exists
-        try:
-            WebDriverWait(self.driver, TIMEOUT).until(
-                EC.presence_of_element_located((By.CLASS_NAME, "m-product__card"))
-            )
-        except (TimeoutException, NoSuchElementException):
-            raise ValueError("Product tag not found or not loaded properly.")
 
     def product_node(self, item: Tag) -> str:
         """
@@ -50,7 +38,7 @@ class LiverpoolScraper:
         Get product links from the Liverpool website.
         """
         self.driver.get(PRODUCT_URL)
-        self._ensure_key_product_tags_exists()
+        self._ensure_key_product_tags_exists("m-product__card")
 
         soup = BeautifulSoup(self.driver.page_source, "html.parser")
         product_items = soup.select("li.m-product__card")
@@ -80,24 +68,9 @@ class LiverpoolParentProductTag:
 
 
 @dataclass
-class LiverpoolDetailScraper:
+class LiverpoolDetailScraper(BaseScraper):
     driver: webdriver.Firefox
     detail_url: str
-
-    def _ensure_key_product_tags_exists(self) -> None:
-        """
-        Wait until a product tag is present on the page.
-        """
-        TIMEOUT = 10  # seconds
-        # wait until a tag with class exists
-        try:
-            WebDriverWait(self.driver, TIMEOUT).until(
-                EC.presence_of_element_located(
-                    (By.CLASS_NAME, "o-product__productSpecsList")
-                )
-            )
-        except (TimeoutException, NoSuchElementException):
-            raise ValueError("Product tag not found or not loaded properly.")
 
     def get_product_details(self) -> dict:
         """
@@ -105,7 +78,7 @@ class LiverpoolDetailScraper:
         """
         self.driver.get(self.detail_url)
 
-        self._ensure_key_product_tags_exists()
+        self._ensure_key_product_tags_exists("o-product__productSpecsList")
         soup = BeautifulSoup(self.driver.page_source, "html.parser")
         # Retrieve tags from specifications
         tag_product_spec_titles = soup.find_all(
