@@ -1,28 +1,35 @@
 from __future__ import annotations
 
-import os
 from dataclasses import dataclass
 
 from bs4 import BeautifulSoup
 from bs4.element import Tag
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
-from selenium.webdriver import DesiredCapabilities
 from selenium.webdriver.common.by import By
-from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-# from .constants import GECKO_DRIVER_PATH
-from .utils import get_firefox_driver
+BASE_URL = "https://www.liverpool.com.mx"
+PRODUCT_URL = f"{BASE_URL}/tienda?s=lavadoras"
 
 
 @dataclass
 class LiverpoolScraper:
     driver: webdriver.Firefox
 
-    BASE_URL = "https://www.liverpool.com.mx/tienda?s=lavadoras"
+    def _ensure_key_product_tags_exist(self) -> None:
+        """
+        Wait until a product tag is present on the page.
+        """
+        TIMEOUT = 5  # seconds
+        # wait until a tag with class exists
+        try:
+            WebDriverWait(self.driver, TIMEOUT).until(
+                EC.presence_of_element_located((By.CLASS_NAME, "m-product__card"))
+            )
+        except (TimeoutException, NoSuchElementException):
+            raise ValueError("Product tag not found or not loaded properly.")
 
     def product_node(self, item: Tag) -> str:
         """
@@ -40,20 +47,26 @@ class LiverpoolScraper:
         """
         Get product links from the Liverpool website.
         """
-        self.driver.get(self.BASE_URL)
+        self.driver.get(PRODUCT_URL)
+        self._ensure_key_product_tag_exists()
 
         soup = BeautifulSoup(self.driver.page_source, "html.parser")
         product_items = soup.select("li.m-product__card")
 
         product_links = []
+
         for item in product_items:
-            product_tag = LiverpoolProductTag(item)
+            product_tag = LiverpoolParentProductTag(item)
+            full_link = f"{BASE_URL}{product_tag.href}"
+            product_links.append(full_link)
+
+        print(f"Found {len(product_links)} product links.")
 
         return product_links
 
 
 @dataclass
-class LiverpoolProductTag:
+class LiverpoolParentProductTag:
     node: Tag
 
     @property
@@ -64,6 +77,27 @@ class LiverpoolProductTag:
         return self.node.find("figcaption")
 
 
-if __name__ == "__main__":
-    driver = get_firefox_driver()
-    scraper = LiverpoolScraper(driver=driver)
+@dataclass
+class LiverpoolDetailScraper:
+    driver: webdriver.Firefox
+    detail_url: str
+
+    def _ensure_key_product_tags_exist(self) -> None:
+        """
+        Wait until a product tag is present on the page.
+        """
+        TIMEOUT = 5  # seconds
+        # wait until a tag with class exists
+        try:
+            WebDriverWait(self.driver, TIMEOUT).until(
+                EC.presence_of_element_located((By.CLASS_NAME, "m-product__card"))
+            )
+        except (TimeoutException, NoSuchElementException):
+            raise ValueError("Product tag not found or not loaded properly.")
+
+    def get_product_details(self) -> dict:
+        """
+        Get product details from a given product URL.
+        """
+        self.driver.get(self.detail_url)
+        soup = BeautifulSoup(self.driver.page_source, "html.parser")
