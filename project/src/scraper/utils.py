@@ -6,7 +6,6 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
 from src.scraper.constants import GECKO_DRIVER_PATH
 
-BASE_URL = "https://www.liverpool.com.mx/tienda?s=lavadoras"
 STRATEGY = "none"
 
 
