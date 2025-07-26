@@ -10,8 +10,8 @@ from selenium.common.exceptions import NoSuchElementException
 from .base import BaseScraper
 from .utils import normalize_string
 
-BASE_URL = "https://www.liverpool.com.mx"
-PRODUCT_URL = f"{BASE_URL}/tienda?s=lavadoras"
+BASE_URL = "https://www.homedepot.com.mx"
+PRODUCT_URL = f"{BASE_URL}/s/lavadoras"
 
 
 @dataclass
@@ -35,10 +35,10 @@ class ParentScraper(BaseScraper):
         Get product links from the Liverpool website.
         """
         self.driver.get(PRODUCT_URL)
-        self._ensure_key_product_tags_exists("m-product__card")
+        self._ensure_key_product_tags_exists("MuiCardContent-root", timeout=10)
 
         soup = BeautifulSoup(self.driver.page_source, "html.parser")
-        product_items = soup.select("li.m-product__card")
+        product_items = soup.select("div.MuiCardContent-root")
 
         product_links = []
 
