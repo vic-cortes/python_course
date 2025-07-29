@@ -13,7 +13,8 @@ class BaseScraper(ABC):
 
     def _ensure_key_product_tags_exists(
         self,
-        class_name: str,
+        value: str,
+        by_type: By = By.CLASS_NAME,
         timeout: int = 5,
     ) -> None:
         """
@@ -22,7 +23,7 @@ class BaseScraper(ABC):
         # wait until a tag with class exists
         try:
             WebDriverWait(self.driver, timeout=timeout).until(
-                EC.presence_of_element_located((By.CLASS_NAME, class_name))
+                EC.presence_of_element_located((by_type, value))
             )
         except (TimeoutException, NoSuchElementException):
             raise ValueError("Product tag not found or not loaded properly.")
