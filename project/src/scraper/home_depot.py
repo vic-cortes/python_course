@@ -69,10 +69,11 @@ class ParentProductTag:
 class DetailScraper(BaseScraper):
     driver: webdriver.Firefox
     detail_url: str
+    KEY_PRODUCT_TAG = "pdp-spec-tecnicas"
 
     def __post_init__(self):
         self.driver.get(self.detail_url)
-        self._ensure_key_product_tags_exists("pdp-spec-tecnicas", by_type=By.ID, timeout=10)
+        self._ensure_key_product_tags_exists(self.KEY_PRODUCT_TAG, by_type=By.ID, timeout=10)
         self._soup = BeautifulSoup(self.driver.page_source, "html.parser")
 
     def get_price(self) -> str:

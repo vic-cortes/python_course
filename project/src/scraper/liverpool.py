@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 from bs4.element import Tag
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
 
 from .base import BaseScraper
 from .utils import normalize_string
@@ -68,20 +69,25 @@ class ParentProductTag:
 class DetailScraper(BaseScraper):
     driver: webdriver.Firefox
     detail_url: str
+    KEY_PRODUCT_TAG = "o-product__productSpecsList"
+
+    def __post_init__(self):
+        self.driver.get(self.detail_url)
+        self._ensure_key_product_tags_exists(self.KEY_PRODUCT_TAG, by_type=By.CLASS_NAME, timeout=10)
+        self._soup = BeautifulSoup(self.driver.page_source, "html.parser")
+
+    def get_price(self) -> str:
+        return {}
 
     def get_product_details(self) -> dict:
         """
         Get product details from a given product URL.
         """
-        self.driver.get(self.detail_url)
-
-        self._ensure_key_product_tags_exists("o-product__productSpecsList")
-        soup = BeautifulSoup(self.driver.page_source, "html.parser")
         # Retrieve tags from specifications
-        tag_product_spec_titles = soup.find_all(
+        tag_product_spec_titles = self._soup.find_all(
             "span", class_="productSpecsGrouped_bold"
         )
-        tag_product_specs = soup.find_all("span", class_="productSpecsGrouped_regular")
+        tag_product_specs = self._soup.find_all("span", class_="productSpecsGrouped_regular")
 
         # Retrieve text from tags and normalize it
         product_spec_titles = [
@@ -93,3 +99,13 @@ class DetailScraper(BaseScraper):
         product_specs = dict(zip(product_spec_titles, product_spec))
 
         return product_specs
+    
+    def get_all_data(self) -> dict:
+        """
+        Get all data from the product detail page.
+        """
+        final_data = {}
+        final_data["specs"] = self.get_product_details()
+        final_data["price"] = self.get_price()
+
+        return final_data
