@@ -36,5 +36,18 @@
         "PYTHONPATH": "${workspaceFolder}/project"
       }
     }
+    {
+      "name": "[PROJECT] Craw4ai",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/project/src/scraper/crawl4ai_testing.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "python": "${workspaceFolder}/project/.venv/bin/python",
+      "cwd": "${workspaceFolder}/project",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/project"
+      }
+    }
   ]
 }
