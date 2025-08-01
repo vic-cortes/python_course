@@ -73,7 +73,9 @@ class DetailScraper(BaseScraper):
 
     def __post_init__(self):
         self.driver.get(self.detail_url)
-        self._ensure_key_product_tags_exists(self.KEY_PRODUCT_TAG, by_type=By.ID, timeout=10)
+        self._ensure_key_product_tags_exists(
+            self.KEY_PRODUCT_TAG, by_type=By.ID, timeout=10
+        )
         self._soup = BeautifulSoup(self.driver.page_source, "html.parser")
 
     def get_price(self) -> str:
@@ -85,7 +87,11 @@ class DetailScraper(BaseScraper):
         price_node = self._soup.find("div", class_="price-card-height")
         # Get price node then find all paragraphs with class `product-price`
         # Confirm if `\xa0` is always present
-        prices = [el.text.strip() for el in price_node.find_all("p") if "product-price" in el["class"]]
+        prices = [
+            el.text.strip()
+            for el in price_node.find_all("p")
+            if "product-price" in el["class"]
+        ]
 
         if len(prices) != JUST_ONE_PRICE:
             raise ValueError("Price not found on the page.")
@@ -100,7 +106,7 @@ class DetailScraper(BaseScraper):
         Get product details from a given product URL.
         """
         # Find by id instead of class
-        product_details = self._soup.find("div", id="pdp-spec-tecnicas")
+        product_details = self._soup.find("div", id=self.KEY_PRODUCT_TAG)
 
         if not product_details:
             return {}
@@ -111,9 +117,7 @@ class DetailScraper(BaseScraper):
         product_spec_titles = [
             normalize_string(el.text) for el in tag_product_specs if el.get("style")
         ]
-        product_spec = [
-            el.text for el in tag_product_specs if not el.get("style")
-        ]
+        product_spec = [el.text for el in tag_product_specs if not el.get("style")]
 
         # Create a dictionary with product specifications
         product_specs = dict(zip(product_spec_titles, product_spec))

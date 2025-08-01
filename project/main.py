@@ -16,7 +16,13 @@ if __name__ == "__main__":
 
     for link in product_links:
         detail_scraper = HomeDepotDetailScraper(driver=driver, detail_url=link)
-        product_details = detail_scraper.get_all_data()
+
+        try:
+            product_details = detail_scraper.get_all_data()
+        except Exception as e:
+            print(f"Error occurred while scraping {link}: {e}")
+            continue
+
         all_data.append(product_details)
 
     print(all_data)
