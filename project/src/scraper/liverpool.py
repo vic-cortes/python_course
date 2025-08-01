@@ -19,6 +19,10 @@ PRODUCT_URL = f"{BASE_URL}/tienda?s=lavadoras"
 class ParentScraper(BaseScraper):
     driver: webdriver.Firefox
 
+    @property
+    def service_name(self) -> str:
+        return "liverpool"
+
     def product_node(self, item: Tag) -> str:
         """
         Extract product link from a product item.

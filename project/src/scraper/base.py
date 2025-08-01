@@ -11,6 +11,10 @@ class BaseScraper(ABC):
     Base class for web scrapers.
     """
 
+    @property
+    def service_name(self) -> str:
+        return "base"
+
     def _ensure_key_product_tags_exists(
         self,
         value: str,
