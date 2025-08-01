@@ -22,16 +22,18 @@ SUPPORTED_SCRAPERS = {
     },
 }
 
-if __name__ == "__main__":
-    driver = get_firefox_driver()
-    scraper_name = "home_depot"
 
+def run_scraper(scraper_name: str) -> None:
+    """
+    Run the specified scraper and save the results to a JSON file.
+    """
     if scraper_name not in SUPPORTED_SCRAPERS:
         raise ValueError(f"Unsupported scraper: {scraper_name}")
 
     ParentScraper = SUPPORTED_SCRAPERS[scraper_name]["parent"]
     DetailScraper = SUPPORTED_SCRAPERS[scraper_name]["detail"]
 
+    driver = get_firefox_driver()
     scraper: BaseScraper = ParentScraper(driver=driver)
 
     product_links = scraper.get_product_links()
@@ -49,8 +51,6 @@ if __name__ == "__main__":
 
         all_data.append(product_details)
 
-    # print(all_data)
-    # Save the results to a JSON file
     current_time = datetime.now().strftime("%Y%m%d_%H%M")
     output_file = DATA_PATH / f"{scraper.service_name}_products_{current_time}.json"
 
@@ -58,3 +58,8 @@ if __name__ == "__main__":
         json.dump(all_data, file, indent=4)
 
     driver.quit()
+
+
+if __name__ == "__main__":
+    scraper_name = "home_depot"
+    run_scraper(scraper_name)
