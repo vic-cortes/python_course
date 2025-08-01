@@ -73,11 +73,34 @@ class DetailScraper(BaseScraper):
 
     def __post_init__(self):
         self.driver.get(self.detail_url)
-        self._ensure_key_product_tags_exists(self.KEY_PRODUCT_TAG, by_type=By.CLASS_NAME, timeout=10)
+        self._ensure_key_product_tags_exists(self.KEY_PRODUCT_TAG, timeout=10)
         self._soup = BeautifulSoup(self.driver.page_source, "html.parser")
 
     def get_price(self) -> str:
-        return {}
+        JUST_ONE_PRICE = 1
+        price_node = self._soup.find("div", class_="m-product__price--collection")
+
+        # prices = [
+        #     el
+        #     for el in price_node.find_all("p")
+        #     if "Discount" in "__".join(el["class"])
+        # ]
+
+        prices = []
+        KEY_PRICE_NAME = "DiscountPrice"
+
+        for node_p in price_node.find_all("p"):
+            node_class = "__".join(node_p["class"])
+
+            if KEY_PRICE_NAME in node_class:
+                prices.append(node_p.text.strip())
+
+        if len(prices) != JUST_ONE_PRICE:
+            raise ValueError("Price not found on the page.")
+
+        raw_price = prices[0]
+        string_price = [el for el in list(raw_price) if el.isdigit()]
+        return float("".join(string_price)) / 100
 
     def get_product_details(self) -> dict:
         """
@@ -87,7 +110,9 @@ class DetailScraper(BaseScraper):
         tag_product_spec_titles = self._soup.find_all(
             "span", class_="productSpecsGrouped_bold"
         )
-        tag_product_specs = self._soup.find_all("span", class_="productSpecsGrouped_regular")
+        tag_product_specs = self._soup.find_all(
+            "span", class_="productSpecsGrouped_regular"
+        )
 
         # Retrieve text from tags and normalize it
         product_spec_titles = [
@@ -99,7 +124,7 @@ class DetailScraper(BaseScraper):
         product_specs = dict(zip(product_spec_titles, product_spec))
 
         return product_specs
-    
+
     def get_all_data(self) -> dict:
         """
         Get all data from the product detail page.
