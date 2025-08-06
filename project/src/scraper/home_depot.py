@@ -1,11 +1,15 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from time import sleep
 
 from bs4 import BeautifulSoup
 from bs4.element import Tag
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import (
+    ElementNotInteractableException,
+    NoSuchElementException,
+)
 from selenium.webdriver.common.by import By
 
 from .base import BaseScraper
@@ -23,6 +27,16 @@ class ParentScraper(BaseScraper):
     def service_name(self) -> str:
         return "home_depot"
 
+    def go_to_main_page(self) -> None:
+        """
+        Navigate to the Home Depot home page.
+        """
+        self.driver.get(PRODUCT_URL)
+        # click window message
+        sleep(2)  # Wait for the page to load
+        CSS_SELECTOR = ".dialogStore--icon--highlightOff"
+        self.driver.find_element(By.CSS_SELECTOR, CSS_SELECTOR).click()
+
     def product_node(self, item: Tag) -> str:
         """
         Extract product link from a product item.
@@ -39,7 +53,6 @@ class ParentScraper(BaseScraper):
         """
         Get product links from the Liverpool website.
         """
-        self.driver.get(PRODUCT_URL)
         self._ensure_key_product_tags_exists("MuiCardContent-root", timeout=10)
 
         soup = BeautifulSoup(self.driver.page_source, "html.parser")
@@ -53,6 +66,55 @@ class ParentScraper(BaseScraper):
             product_links.append(full_link)
 
         print(f"Found {len(product_links)} product links.")
+
+        return product_links
+
+    def _click_next_page(self, css_selector: str) -> bool:
+        """
+        Click the "next page" button to load more products.
+        """
+        SCROLL_COMMAND = (
+            "arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });"
+        )
+
+        try:
+            # Get the next page button element
+            element = self.driver.find_element(By.CSS_SELECTOR, css_selector)
+            # Is mandatory to scroll the element into view otherwise it will not be clickable
+            self.driver.execute_script(SCROLL_COMMAND, element)
+            element.click()
+            success = True
+        except ElementNotInteractableException:
+            success = False
+        except Exception as e:
+            print(f"Error clicking next page: {e}")
+            success = False
+        finally:
+            return success
+
+    def get_all_links(self) -> list[str]:
+        """
+        Get all product links from the Liverpool website.
+        """
+        self.go_to_main_page()
+
+        # Because on the HOME Depot page, when it loads for the first time,
+        # the next button is one type of class, after loading
+        # the products, the button changes to a list type.
+        # Therefore, the CSS selector must be changed to be able to click
+        # the next button.
+        FIRST_CSS_SELECTOR = ".arrow-button"
+        SECOND_CSS_SELECTOR = "li:nth-child(6) > button:nth-child(1)"
+
+        # Product links from the first page
+        product_links = self.get_product_links()
+        css_selector = FIRST_CSS_SELECTOR
+
+        while self._click_next_page(css_selector):
+            new_product_links = self.get_product_links()
+            product_links.extend(new_product_links)
+            # Update CSS selector for the next iteration
+            css_selector = SECOND_CSS_SELECTOR
 
         return product_links
 

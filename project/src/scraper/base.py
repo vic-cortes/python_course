@@ -30,4 +30,9 @@ class BaseScraper(ABC):
                 EC.presence_of_element_located((by_type, value))
             )
         except (TimeoutException, NoSuchElementException):
-            raise ValueError("Product tag not found or not loaded properly.")
+            print(
+                f"Product tag with {by_type}='{value}' not found within {timeout} seconds."
+            )
+            # raise ValueError("Product tag not found or not loaded properly.")
+        except Exception as e:
+            print(f"An error occurred while waiting for product tags: {e}")
