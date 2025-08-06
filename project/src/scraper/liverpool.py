@@ -65,7 +65,11 @@ class ParentScraper(BaseScraper):
         return product_links
 
     def _click_next_page(self) -> bool:
+        """
+        Click the "next page" button to load more products.
+        """
         CSS_SELECTOR = "li.page-item:nth-child(8) > a:nth-child(1)"
+
         try:
             self.driver.find_element(By.CSS_SELECTOR, CSS_SELECTOR).click()
             success = True
