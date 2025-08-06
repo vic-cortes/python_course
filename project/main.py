@@ -36,7 +36,7 @@ def run_scraper(scraper_name: str) -> None:
     driver = get_firefox_driver()
     scraper: BaseScraper = ParentScraper(driver=driver)
 
-    product_links = scraper.get_product_links()
+    product_links = scraper.get_all_links()
 
     all_data = []
 
@@ -61,5 +61,5 @@ def run_scraper(scraper_name: str) -> None:
 
 
 if __name__ == "__main__":
-    scraper_name = "home_depot"
+    scraper_name = "liverpool"
     run_scraper(scraper_name)

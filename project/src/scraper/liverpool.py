@@ -5,7 +5,10 @@ from dataclasses import dataclass
 from bs4 import BeautifulSoup
 from bs4.element import Tag
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import (
+    ElementNotInteractableException,
+    NoSuchElementException,
+)
 from selenium.webdriver.common.by import By
 
 from .base import BaseScraper
@@ -23,6 +26,12 @@ class ParentScraper(BaseScraper):
     def service_name(self) -> str:
         return "liverpool"
 
+    def go_to_main_page(self) -> None:
+        """
+        Navigate to the Liverpool home page.
+        """
+        self.driver.get(PRODUCT_URL)
+
     def product_node(self, item: Tag) -> str:
         """
         Extract product link from a product item.
@@ -39,7 +48,6 @@ class ParentScraper(BaseScraper):
         """
         Get product links from the Liverpool website.
         """
-        self.driver.get(PRODUCT_URL)
         self._ensure_key_product_tags_exists("m-product__card")
 
         soup = BeautifulSoup(self.driver.page_source, "html.parser")
@@ -53,6 +61,34 @@ class ParentScraper(BaseScraper):
             product_links.append(full_link)
 
         print(f"Found {len(product_links)} product links.")
+
+        return product_links
+
+    def _click_next_page(self) -> bool:
+        CSS_SELECTOR = "li.page-item:nth-child(8) > a:nth-child(1)"
+        try:
+            self.driver.find_element(By.CSS_SELECTOR, CSS_SELECTOR).click()
+            success = True
+        except ElementNotInteractableException:
+            success = False
+        except Exception as e:
+            print(f"Error clicking next page: {e}")
+            success = False
+        finally:
+            return success
+
+    def get_all_links(self) -> list[str]:
+        """
+        Get all product links from the Liverpool website.
+        """
+        self.go_to_main_page()
+
+        # Product links from the first page
+        product_links = self.get_product_links()
+
+        while self._click_next_page():
+            new_product_links = self.get_product_links()
+            product_links.extend(new_product_links)
 
         return product_links
 
