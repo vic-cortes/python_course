@@ -1,7 +1,7 @@
 from __future__ import annotations
 
+import time
 from dataclasses import dataclass
-from time import sleep
 
 from bs4 import BeautifulSoup
 from bs4.element import Tag
@@ -33,7 +33,7 @@ class ParentScraper(BaseScraper):
         """
         self.driver.get(PRODUCT_URL)
         # click window message
-        sleep(2)  # Wait for the page to load
+        time.sleep(2)  # Wait for the page to load
         CSS_SELECTOR = ".dialogStore--icon--highlightOff"
         self.driver.find_element(By.CSS_SELECTOR, CSS_SELECTOR).click()
 
@@ -82,6 +82,7 @@ class ParentScraper(BaseScraper):
             element = self.driver.find_element(By.CSS_SELECTOR, css_selector)
             # Is mandatory to scroll the element into view otherwise it will not be clickable
             self.driver.execute_script(SCROLL_COMMAND, element)
+            time.sleep(1)  # Wait for the scroll to complete
             element.click()
             success = True
         except ElementNotInteractableException:

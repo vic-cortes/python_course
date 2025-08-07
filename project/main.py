@@ -51,8 +51,14 @@ def run_scraper(scraper_name: str) -> None:
 
         all_data.append(product_details)
 
-    current_time = datetime.now().strftime("%Y%m%d_%H%M")
-    output_file = DATA_PATH / f"{scraper.service_name}_products_{current_time}.json"
+    current_time = datetime.now().strftime("%Y%m%d_%H_00")
+    current_client_path = DATA_PATH / scraper.service_name
+
+    # Check if folder exists, if not create it
+    if not current_client_path.exists():
+        current_client_path.mkdir(parents=True)
+
+    output_file = current_client_path / f"products_{current_time}.json"
 
     with open(output_file, "w") as file:
         json.dump(all_data, file, indent=4)
@@ -61,5 +67,5 @@ def run_scraper(scraper_name: str) -> None:
 
 
 if __name__ == "__main__":
-    scraper_name = "home_depot"
+    scraper_name = "liverpool"
     run_scraper(scraper_name)

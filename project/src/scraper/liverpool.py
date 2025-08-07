@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import random
+import time
 from dataclasses import dataclass
 
 from bs4 import BeautifulSoup
@@ -113,25 +115,25 @@ class ParentProductTag:
 class DetailScraper(BaseScraper):
     driver: webdriver.Firefox
     detail_url: str
-    KEY_PRODUCT_TAG = "o-product__productSpecsList"
+    # KEY_PRODUCT_TAG = "o-product__productSpecsList"
+    KEY_PRODUCT_TAG = "productSpecsGrouped_bold"
 
     def __post_init__(self):
+        print(f"* Scraping product details from: {self.detail_url}")
         self.driver.get(self.detail_url)
         self._ensure_key_product_tags_exists(self.KEY_PRODUCT_TAG, timeout=10)
+        # Wait randomly for the page to load to prevent being blocked
+        # by the website for making too many requests in a short time
+        time.sleep(random.uniform(1, 3))
         self._soup = BeautifulSoup(self.driver.page_source, "html.parser")
 
     def get_price(self) -> str:
         JUST_ONE_PRICE = 1
+        KEY_PRICE_NAME = "DiscountPrice"
+
         price_node = self._soup.find("div", class_="m-product__price--collection")
 
-        # prices = [
-        #     el
-        #     for el in price_node.find_all("p")
-        #     if "Discount" in "__".join(el["class"])
-        # ]
-
         prices = []
-        KEY_PRICE_NAME = "DiscountPrice"
 
         for node_p in price_node.find_all("p"):
             node_class = "__".join(node_p["class"])
