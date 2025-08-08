@@ -1,3 +1,5 @@
+import json
+
 from fastapi import FastAPI
 
 from ..scraper import SUPPORTED_SCRAPERS
@@ -26,3 +28,12 @@ async def get_data(script_name: str):
     data_files = list(data_path.glob("*.json"))
     if not data_files:
         return {"error": "No data files found"}
+
+    # Read each json file and return its content
+    data_contents = []
+    for file in data_files:
+        with open(file, "r") as f:
+            json_data = json.load(f)
+            data_contents.append(json_data)
+
+    return {"data": data_contents, "status": "success"}
