@@ -11,3 +11,7 @@ db_up:
 test_db_connection:
 	@echo "Testing database connection..."
 	uv run src/db/test_connection.py
+
+ruff_check:
+	@echo "Running ruff check..."
+	ruff check src --fix .
