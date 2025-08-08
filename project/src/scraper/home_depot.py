@@ -140,6 +140,7 @@ class DetailScraper(BaseScraper):
 
     def __post_init__(self):
         self.driver.get(self.detail_url)
+        time.sleep(2)  # Wait for the page to load
         self._ensure_key_product_tags_exists(
             self.KEY_PRODUCT_TAG, by_type=By.ID, timeout=10
         )
