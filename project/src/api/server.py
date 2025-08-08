@@ -10,20 +10,23 @@ app = FastAPI()
 
 @app.get("/health")
 async def health_check():
+    """
+    # Health check endpoint.
+    """
     return {
         "message": "API is running",
         "supported_scrapers": SUPPORTED_SCRAPERS,
     }
 
 
-@app.get("/data/{script_name}")
-async def get_data(script_name: str):
-    script_name = script_name.lower()
+@app.get("/data/{scraper_name}")
+async def get_data(scraper_name: str):
+    scraper_name = scraper_name.lower()
 
-    if script_name not in SUPPORTED_SCRAPERS:
+    if scraper_name not in SUPPORTED_SCRAPERS:
         return {"error": "Unsupported scraper"}
 
-    data_path = DATA_PATH / script_name
+    data_path = DATA_PATH / scraper_name
 
     data_files = list(data_path.glob("*.json"))
     if not data_files:
