@@ -1,7 +1,8 @@
 [
     {
         "specs": {},
-        "price": 18999.0
+        "price": 18999.0,
+        "brand": ""
     },
     {
         "specs": {
@@ -46,7 +47,8 @@
             "timer_/_temporizador": "Timer",
             "tipo_de_agitador": "-"
         },
-        "price": 12999.0
+        "price": 12999.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -71,114 +73,8 @@
             "timer_/_temporizador": "Si",
             "tipo_de_corriente": "220 v"
         },
-        "price": 35999.0
-    },
-    {
-        "specs": {},
-        "price": 17499.0
-    },
-    {
-        "specs": {
-            "acabado": "Brillante",
-            "acabado_de_la_tina": "Acero inoxidable",
-            "accesorios": "Sn",
-            "alarma_de_fin_de_ciclo": "Se\u00f1al de fin de ciclo",
-            "alto": "103.820 cm",
-            "ancho": "70.480 cm",
-            "apilable": "No",
-            "cajon_blanqueador": "Si",
-            "cajon_suavizante": "Si",
-            "capacidad_/_tamano": "24 kg",
-            "color": "Blanco",
-            "combo": "N/a",
-            "consumo_de_energia": "-",
-            "contenido_del_empaque": "N/a",
-            "control_automatico_de_temperatura": "S\u00ed",
-            "control_de_temperatura": "S\u00ed",
-            "depositos_automaticos": "Si",
-            "direccion_de_la_ventilacion": "N/a",
-            "display_del_producto": "N/a",
-            "filtro_de_atrapapelusas": "No",
-            "garantia_proveedor": "1 a\u00f1o",
-            "indicador_de_filtro_atrapapelusa": "No",
-            "inverter": "No",
-            "largo": "103.820 cm",
-            "luz": "-",
-            "luz_interior": "No",
-            "material": "Metal",
-            "modelo": "7mmvw5035pw",
-            "nivel_automatico_de_agua": "S\u00ed",
-            "nivel_de_agua": "S\u00ed",
-            "niveles_de_suciedad": "Si",
-            "no._de_ciclos": "11",
-            "no._de_piezas": "1",
-            "peso": "63.500 kg",
-            "profundidad": "68.580 cm",
-            "puerta_/_tapa": "Met\u00e1lica",
-            "seguro_de_tapa": "Bloqueo de tapa",
-            "seleccion_de_opciones_de_lavadora": "Si",
-            "seleccion_de_suciedades": "5",
-            "seleccion_de_temperaturas": "Si",
-            "sensor_de_balance": "S\u00ed",
-            "sistema_de_lavado": "Alta eficiencia he, bajo consumo de agua",
-            "sistema_de_secado": "-",
-            "smart": "No",
-            "timer_/_temporizador": "N/a",
-            "tipo": "Carga superior"
-        },
-        "price": 16399.0
-    },
-    {
-        "specs": {
-            "acabado": "Liso",
-            "acabado_de_la_tina": "Acero inoxidable",
-            "alto": "109 cm",
-            "ancho": "66.000 cm",
-            "capacidad_/_tamano": "22 kg",
-            "color": "Blanco",
-            "consumo_de_energia": "-",
-            "control_de_temperatura": "S\u00ed",
-            "filtro_de_atrapapelusas": "No",
-            "garantia_proveedor": "1 a\u00f1o",
-            "largo": "109.000 cm",
-            "luz": "-",
-            "material": "Acero",
-            "modelo": "8mwtw2224wjm",
-            "nivel_de_agua": "Smart load",
-            "no._de_ciclos": "12",
-            "peso": "47.550 kg",
-            "profundidad": "66.000 cm",
-            "sistema_de_secado": "-",
-            "timer_/_temporizador": "No"
-        },
-        "price": 12899.0
-    },
-    {
-        "specs": {
-            "acabado": "Blanco",
-            "acabado_de_la_tina": "Acero inox",
-            "alto": "99 cm",
-            "ancho": "70.000 cm",
-            "color": "Blanxo",
-            "combo": "Si",
-            "consumo_de_energia": "-",
-            "contenido_del_empaque": "1",
-            "control_de_temperatura": "S\u00ed",
-            "filtro_de_atrapapelusas": "S\u00ed",
-            "garantia_proveedor": "10 a\u00f1os",
-            "largo": "99.000 cm",
-            "luz": "-",
-            "material": "Acero",
-            "modelo": "Wd20wv26r",
-            "nivel_de_agua": "Automatico",
-            "no._de_ciclos": "14",
-            "peso": "95.000 kg",
-            "profundidad": "77.000 cm",
-            "protector_contra_arrugas": "-",
-            "sistema_de_secado": "-",
-            "timer_/_temporizador": "Si"
-        },
-        "price": 21499.0
+        "price": 35999.0,
+        "brand": "LG"
     },
     {
         "specs": {
@@ -236,82 +132,8 @@
             "velocidad_maxima": "770 revoluciones por minuto",
             "ventana": "S\u00ed"
         },
-        "price": 11499.0
-    },
-    {
-        "specs": {
-            "acabado": "Acero inoxidable oscuro",
-            "acabado_de_la_tina": "Acero inoxidable",
-            "accesorios": "Mangueras de conexion",
-            "alarma_de_fin_de_ciclo": "Si",
-            "alto": "111 cm",
-            "ancho": "68.600 cm",
-            "apilable": "No",
-            "cajon_blanqueador": "Si",
-            "cajon_suavizante": "Si",
-            "capacidad_/_tamano": "Lavadora  26kg / secadora 15kg",
-            "color": "Plata",
-            "combo": "Si",
-            "consumo_de_energia": "105 kwh/a\u00f1o",
-            "contenido_del_empaque": "1 lavasecadora",
-            "control_de_temperatura": "S\u00ed",
-            "depositos_automaticos": "Si",
-            "direccion_de_la_ventilacion": "No",
-            "display_del_producto": "Touch tft 7",
-            "familia_de_color": "Acero inoxidable",
-            "filtro_de_atrapapelusas": "S\u00ed",
-            "funcionamiento": "El\u00e9ctrico",
-            "garantia_proveedor": "1 a\u00f1o en producto y 10 a\u00f1os en motor digital inver",
-            "inverter": "S\u00ed",
-            "largo": "111.000 cm",
-            "legal": "1 a\u00f1o en producto y 10 a\u00f1os en motor digital inver",
-            "luz": "Luz led",
-            "luz_interior": "S\u00ed",
-            "material": "Aluminio",
-            "modelo": "Wd26db8995bzax",
-            "nivel_de_agua": "Si",
-            "niveles_de_suciedad": "Si",
-            "no._de_ciclos": "22",
-            "no._de_piezas": "1",
-            "peso": "144.000 kg",
-            "potencia": "600 w",
-            "profundidad": "87.500 cm",
-            "protector_contra_arrugas": "Si",
-            "puerta_/_tapa": "Cristal",
-            "seguro_de_tapa": "Si",
-            "seleccion_de_opciones_de_lavadora": "Si",
-            "seleccion_de_suciedades": "Si",
-            "seleccion_de_temperaturas": "Si",
-            "sensor_de_balance": "Si",
-            "sistema_de_lavado": "Ai optiwash",
-            "sistema_de_secado": "-",
-            "timer_/_temporizador": "-"
-        },
-        "price": 44999.0
-    },
-    {
-        "specs": {
-            "acabado": "Silver",
-            "acabado_de_la_tina": "Acero pintado",
-            "alto": "189 cm",
-            "ancho": "70.000 cm",
-            "color": "Silver",
-            "consumo_de_energia": "-",
-            "control_de_temperatura": "No",
-            "filtro_de_atrapapelusas": "S\u00ed",
-            "garantia_proveedor": "10 a\u00f1os en motor de lavadora",
-            "largo": "77.000 cm",
-            "luz": "-",
-            "material": "Varios",
-            "modelo": "Wk22vs6p",
-            "nivel_de_agua": "No",
-            "no._de_ciclos": "8",
-            "peso": "142.000 kg",
-            "protector_contra_arrugas": "-",
-            "sistema_de_secado": "-",
-            "timer_/_temporizador": "No"
-        },
-        "price": 34999.0
+        "price": 11499.0,
+        "brand": "WHIRLPOOL"
     },
     {
         "specs": {
@@ -366,68 +188,39 @@
             "timer_/_temporizador": "Retardar inicio 5 y 10 hrs",
             "tipo": "Carga superior"
         },
-        "price": 8999.0
+        "price": 8999.0,
+        "brand": "MABE"
+    },
+    {
+        "specs": {},
+        "price": 17499.0,
+        "brand": ""
     },
     {
         "specs": {
-            "acabado": "Mate",
+            "acabado": "Liso",
             "acabado_de_la_tina": "Acero inoxidable",
-            "alto": "189.00 cm",
-            "ancho": "68.600 cm",
+            "alto": "109 cm",
+            "ancho": "66.000 cm",
+            "capacidad_/_tamano": "22 kg",
             "color": "Blanco",
             "consumo_de_energia": "-",
             "control_de_temperatura": "S\u00ed",
-            "filtro_de_atrapapelusas": "S\u00ed",
-            "garantia_proveedor": "1 a\u00f1o en el equipo y 20 a\u00f1os en el compresor",
-            "largo": "189.000 cm",
-            "luz": "-",
-            "material": "Acero y cristal templado",
-            "modelo": "Wh22dbh570gwax",
-            "nivel_de_agua": "Si",
-            "no._de_ciclos": "25",
-            "peso": "145.000 kg",
-            "profundidad": "79.600 cm",
-            "protector_contra_arrugas": "-",
-            "sistema_de_secado": "-",
-            "timer_/_temporizador": "Si"
-        },
-        "price": 38599.0
-    },
-    {
-        "specs": {
-            "acabado": "Met\u00e1lico",
-            "acabado_de_la_tina": "Acero inoxidbale",
-            "alto": "191.77 cm",
-            "ancho": "68.070 cm",
-            "cajon_suavizante": "Si",
-            "capacidad_/_tamano": "23 kg",
-            "color": "Gris",
-            "consumo_de_energia": "-",
-            "contenido_del_empaque": "Centro de lavado",
-            "control_de_temperatura": "S\u00ed",
-            "filtro_de_atrapapelusas": "S\u00ed",
+            "filtro_de_atrapapelusas": "No",
             "garantia_proveedor": "1 a\u00f1o",
-            "largo": "191.770 cm",
+            "largo": "109.000 cm",
             "luz": "-",
             "material": "Acero",
-            "modelo": "Gcl2340psdg0",
-            "nivel_de_agua": "Si",
-            "no._de_ciclos": "8 programas autom\u00e1ticos",
-            "peso": "115.000 kg",
-            "profundidad": "78.360 cm",
-            "protector_contra_arrugas": "-",
-            "puerta_/_tapa": "Tapa met\u00e1lica",
-            "seleccion_de_temperaturas": "Si",
-            "sistema_de_secado": "Gas",
-            "smart": "S\u00ed",
-            "timer_/_temporizador": "Na",
-            "tipo": "Gas",
-            "tipo_de_agitador": "Spiral washing",
-            "tipo_de_canasta": "Acero inoxidable",
-            "tipo_de_control": "Perillas",
-            "tipo_de_corriente": "120 v"
+            "modelo": "8mwtw2224wjm",
+            "nivel_de_agua": "Smart load",
+            "no._de_ciclos": "12",
+            "peso": "47.550 kg",
+            "profundidad": "66.000 cm",
+            "sistema_de_secado": "-",
+            "timer_/_temporizador": "No"
         },
-        "price": 24999.0
+        "price": 12899.0,
+        "brand": "WHIRLPOOL"
     },
     {
         "specs": {
@@ -477,7 +270,191 @@
             "tipo_de_corriente": "120",
             "ubicacion_de_controles": "Posterior"
         },
-        "price": 10899.0
+        "price": 10899.0,
+        "brand": "SAMSUNG"
+    },
+    {
+        "specs": {
+            "acabado": "Acero inoxidable oscuro",
+            "acabado_de_la_tina": "Acero inoxidable",
+            "accesorios": "Mangueras de conexion",
+            "alarma_de_fin_de_ciclo": "Si",
+            "alto": "111 cm",
+            "ancho": "68.600 cm",
+            "apilable": "No",
+            "cajon_blanqueador": "Si",
+            "cajon_suavizante": "Si",
+            "capacidad_/_tamano": "Lavadora  26kg / secadora 15kg",
+            "color": "Plata",
+            "combo": "Si",
+            "consumo_de_energia": "105 kwh/a\u00f1o",
+            "contenido_del_empaque": "1 lavasecadora",
+            "control_de_temperatura": "S\u00ed",
+            "depositos_automaticos": "Si",
+            "direccion_de_la_ventilacion": "No",
+            "display_del_producto": "Touch tft 7",
+            "familia_de_color": "Acero inoxidable",
+            "filtro_de_atrapapelusas": "S\u00ed",
+            "funcionamiento": "El\u00e9ctrico",
+            "garantia_proveedor": "1 a\u00f1o en producto y 10 a\u00f1os en motor digital inver",
+            "inverter": "S\u00ed",
+            "largo": "111.000 cm",
+            "legal": "1 a\u00f1o en producto y 10 a\u00f1os en motor digital inver",
+            "luz": "Luz led",
+            "luz_interior": "S\u00ed",
+            "material": "Aluminio",
+            "modelo": "Wd26db8995bzax",
+            "nivel_de_agua": "Si",
+            "niveles_de_suciedad": "Si",
+            "no._de_ciclos": "22",
+            "no._de_piezas": "1",
+            "peso": "144.000 kg",
+            "potencia": "600 w",
+            "profundidad": "87.500 cm",
+            "protector_contra_arrugas": "Si",
+            "puerta_/_tapa": "Cristal",
+            "seguro_de_tapa": "Si",
+            "seleccion_de_opciones_de_lavadora": "Si",
+            "seleccion_de_suciedades": "Si",
+            "seleccion_de_temperaturas": "Si",
+            "sensor_de_balance": "Si",
+            "sistema_de_lavado": "Ai optiwash",
+            "sistema_de_secado": "-",
+            "timer_/_temporizador": "-"
+        },
+        "price": 44999.0,
+        "brand": "SAMSUNG"
+    },
+    {
+        "specs": {
+            "acabado": "Silver",
+            "acabado_de_la_tina": "Acero pintado",
+            "alto": "189 cm",
+            "ancho": "70.000 cm",
+            "color": "Silver",
+            "consumo_de_energia": "-",
+            "control_de_temperatura": "No",
+            "filtro_de_atrapapelusas": "S\u00ed",
+            "garantia_proveedor": "10 a\u00f1os en motor de lavadora",
+            "largo": "77.000 cm",
+            "luz": "-",
+            "material": "Varios",
+            "modelo": "Wk22vs6p",
+            "nivel_de_agua": "No",
+            "no._de_ciclos": "8",
+            "peso": "142.000 kg",
+            "protector_contra_arrugas": "-",
+            "sistema_de_secado": "-",
+            "timer_/_temporizador": "No"
+        },
+        "price": 34999.0,
+        "brand": "LG"
+    },
+    {
+        "specs": {
+            "acabado": "Brillante",
+            "acabado_de_la_tina": "Acero inoxidable",
+            "accesorios": "Sn",
+            "alarma_de_fin_de_ciclo": "Se\u00f1al de fin de ciclo",
+            "alto": "103.820 cm",
+            "ancho": "70.480 cm",
+            "apilable": "No",
+            "cajon_blanqueador": "Si",
+            "cajon_suavizante": "Si",
+            "capacidad_/_tamano": "24 kg",
+            "color": "Blanco",
+            "combo": "N/a",
+            "consumo_de_energia": "-",
+            "contenido_del_empaque": "N/a",
+            "control_automatico_de_temperatura": "S\u00ed",
+            "control_de_temperatura": "S\u00ed",
+            "depositos_automaticos": "Si",
+            "direccion_de_la_ventilacion": "N/a",
+            "display_del_producto": "N/a",
+            "filtro_de_atrapapelusas": "No",
+            "garantia_proveedor": "1 a\u00f1o",
+            "indicador_de_filtro_atrapapelusa": "No",
+            "inverter": "No",
+            "largo": "103.820 cm",
+            "luz": "-",
+            "luz_interior": "No",
+            "material": "Metal",
+            "modelo": "7mmvw5035pw",
+            "nivel_automatico_de_agua": "S\u00ed",
+            "nivel_de_agua": "S\u00ed",
+            "niveles_de_suciedad": "Si",
+            "no._de_ciclos": "11",
+            "no._de_piezas": "1",
+            "peso": "63.500 kg",
+            "profundidad": "68.580 cm",
+            "puerta_/_tapa": "Met\u00e1lica",
+            "seguro_de_tapa": "Bloqueo de tapa",
+            "seleccion_de_opciones_de_lavadora": "Si",
+            "seleccion_de_suciedades": "5",
+            "seleccion_de_temperaturas": "Si",
+            "sensor_de_balance": "S\u00ed",
+            "sistema_de_lavado": "Alta eficiencia he, bajo consumo de agua",
+            "sistema_de_secado": "-",
+            "smart": "No",
+            "timer_/_temporizador": "N/a",
+            "tipo": "Carga superior"
+        },
+        "price": 16399.0,
+        "brand": "MAYTAG"
+    },
+    {
+        "specs": {
+            "acabado": "Mate",
+            "acabado_de_la_tina": "Acero inoxidable",
+            "alto": "189.00 cm",
+            "ancho": "68.600 cm",
+            "color": "Blanco",
+            "consumo_de_energia": "-",
+            "control_de_temperatura": "S\u00ed",
+            "filtro_de_atrapapelusas": "S\u00ed",
+            "garantia_proveedor": "1 a\u00f1o en el equipo y 20 a\u00f1os en el compresor",
+            "largo": "189.000 cm",
+            "luz": "-",
+            "material": "Acero y cristal templado",
+            "modelo": "Wh22dbh570gwax",
+            "nivel_de_agua": "Si",
+            "no._de_ciclos": "25",
+            "peso": "145.000 kg",
+            "profundidad": "79.600 cm",
+            "protector_contra_arrugas": "-",
+            "sistema_de_secado": "-",
+            "timer_/_temporizador": "Si"
+        },
+        "price": 38599.0,
+        "brand": "SAMSUNG"
+    },
+    {
+        "specs": {
+            "acabado": "Blanco",
+            "acabado_de_la_tina": "Acero inox",
+            "alto": "99 cm",
+            "ancho": "70.000 cm",
+            "color": "Blanxo",
+            "combo": "Si",
+            "consumo_de_energia": "-",
+            "contenido_del_empaque": "1",
+            "control_de_temperatura": "S\u00ed",
+            "filtro_de_atrapapelusas": "S\u00ed",
+            "garantia_proveedor": "10 a\u00f1os",
+            "largo": "99.000 cm",
+            "luz": "-",
+            "material": "Acero",
+            "modelo": "Wd20wv26r",
+            "nivel_de_agua": "Automatico",
+            "no._de_ciclos": "14",
+            "peso": "95.000 kg",
+            "profundidad": "77.000 cm",
+            "protector_contra_arrugas": "-",
+            "sistema_de_secado": "-",
+            "timer_/_temporizador": "Si"
+        },
+        "price": 21499.0,
+        "brand": "LG"
     },
     {
         "specs": {
@@ -524,7 +501,71 @@
             "timer_/_temporizador": "Si",
             "tipo": "Carga frontal"
         },
-        "price": 16999.0
+        "price": 16999.0,
+        "brand": "LG"
+    },
+    {
+        "specs": {
+            "acabado": "Mate",
+            "acabado_de_la_tina": "Acero inoxidable",
+            "alto": "189.0 cm",
+            "ancho": "68.600 cm",
+            "color": "Negro",
+            "consumo_de_energia": "-",
+            "control_de_temperatura": "S\u00ed",
+            "filtro_de_atrapapelusas": "S\u00ed",
+            "garantia_proveedor": "1 a\u00f1o en el equipo y 20 a\u00f1os en el compresor",
+            "largo": "189.000 cm",
+            "luz": "-",
+            "material": "Acero y cristal templado",
+            "modelo": "Wh22dbh570gvax",
+            "nivel_de_agua": "Si",
+            "no._de_ciclos": "25",
+            "peso": "145.000 kg",
+            "profundidad": "79.600 cm",
+            "protector_contra_arrugas": "-",
+            "sistema_de_secado": "-",
+            "timer_/_temporizador": "Si"
+        },
+        "price": 39999.0,
+        "brand": "SAMSUNG"
+    },
+    {
+        "specs": {
+            "acabado": "Met\u00e1lico",
+            "acabado_de_la_tina": "Acero inoxidbale",
+            "alto": "191.77 cm",
+            "ancho": "68.070 cm",
+            "cajon_suavizante": "Si",
+            "capacidad_/_tamano": "23 kg",
+            "color": "Gris",
+            "consumo_de_energia": "-",
+            "contenido_del_empaque": "Centro de lavado",
+            "control_de_temperatura": "S\u00ed",
+            "filtro_de_atrapapelusas": "S\u00ed",
+            "garantia_proveedor": "1 a\u00f1o",
+            "largo": "191.770 cm",
+            "luz": "-",
+            "material": "Acero",
+            "modelo": "Gcl2340psdg0",
+            "nivel_de_agua": "Si",
+            "no._de_ciclos": "8 programas autom\u00e1ticos",
+            "peso": "115.000 kg",
+            "profundidad": "78.360 cm",
+            "protector_contra_arrugas": "-",
+            "puerta_/_tapa": "Tapa met\u00e1lica",
+            "seleccion_de_temperaturas": "Si",
+            "sistema_de_secado": "Gas",
+            "smart": "S\u00ed",
+            "timer_/_temporizador": "Na",
+            "tipo": "Gas",
+            "tipo_de_agitador": "Spiral washing",
+            "tipo_de_canasta": "Acero inoxidable",
+            "tipo_de_control": "Perillas",
+            "tipo_de_corriente": "120 v"
+        },
+        "price": 24999.0,
+        "brand": "GE"
     },
     {
         "specs": {
@@ -566,32 +607,8 @@
             "timer_/_temporizador": "Si",
             "tipo": "Carga superior"
         },
-        "price": 11999.0
-    },
-    {
-        "specs": {
-            "acabado": "Mate",
-            "acabado_de_la_tina": "Acero inoxidable",
-            "alto": "189.0 cm",
-            "ancho": "68.600 cm",
-            "color": "Negro",
-            "consumo_de_energia": "-",
-            "control_de_temperatura": "S\u00ed",
-            "filtro_de_atrapapelusas": "S\u00ed",
-            "garantia_proveedor": "1 a\u00f1o en el equipo y 20 a\u00f1os en el compresor",
-            "largo": "189.000 cm",
-            "luz": "-",
-            "material": "Acero y cristal templado",
-            "modelo": "Wh22dbh570gvax",
-            "nivel_de_agua": "Si",
-            "no._de_ciclos": "25",
-            "peso": "145.000 kg",
-            "profundidad": "79.600 cm",
-            "protector_contra_arrugas": "-",
-            "sistema_de_secado": "-",
-            "timer_/_temporizador": "Si"
-        },
-        "price": 39999.0
+        "price": 11999.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -625,7 +642,8 @@
             "sistema_de_secado": "-",
             "timer_/_temporizador": "Si"
         },
-        "price": 13999.0
+        "price": 13999.0,
+        "brand": "LG"
     },
     {
         "specs": {
@@ -681,11 +699,13 @@
             "tipo_de_control": "Na",
             "tipo_de_corriente": "Na"
         },
-        "price": 23099.0
+        "price": 23099.0,
+        "brand": "MABE"
     },
     {
         "specs": {},
-        "price": 18999.0
+        "price": 18999.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -747,15 +767,18 @@
             "velocidad_maxima": "770 rpm",
             "ventana": "Vidrio templado"
         },
-        "price": 15499.0
+        "price": 15499.0,
+        "brand": "WHIRLPOOL"
     },
     {
         "specs": {},
-        "price": 25999.0
+        "price": 25999.0,
+        "brand": "MABE"
     },
     {
         "specs": {},
-        "price": 29999.0
+        "price": 29999.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -806,7 +829,8 @@
             "tipo_de_corriente": "120",
             "unidad_de_venta": "Por pieza"
         },
-        "price": 6499.0
+        "price": 6499.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -830,7 +854,8 @@
             "sistema_de_secado": "-",
             "timer_/_temporizador": "Si"
         },
-        "price": 22699.0
+        "price": 22699.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -858,7 +883,8 @@
             "sistema_de_secado": "No",
             "timer_/_temporizador": "-"
         },
-        "price": 14999.0
+        "price": 14999.0,
+        "brand": "LG"
     },
     {
         "specs": {
@@ -886,7 +912,8 @@
             "sistema_de_secado": "No",
             "timer_/_temporizador": "Si"
         },
-        "price": 14799.0
+        "price": 14799.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -941,7 +968,8 @@
             "timer_/_temporizador": "Ma",
             "tipo": "Autom\u00e1tica"
         },
-        "price": 12399.0
+        "price": 12399.0,
+        "brand": "HAIER"
     },
     {
         "specs": {
@@ -996,7 +1024,8 @@
             "tiempo_estimado_de_entrega": "15 d\u00edas",
             "timer_/_temporizador": "No"
         },
-        "price": 7499.0
+        "price": 7499.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -1021,7 +1050,8 @@
             "sistema_de_secado": "-",
             "timer_/_temporizador": "Si"
         },
-        "price": 22499.0
+        "price": 22499.0,
+        "brand": "MAYTAG"
     },
     {
         "specs": {
@@ -1046,7 +1076,8 @@
             "sistema_de_secado": "-",
             "timer_/_temporizador": "Si"
         },
-        "price": 13599.0
+        "price": 13599.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -1101,7 +1132,8 @@
             "tipo_de_control": "Na",
             "tipo_de_corriente": "Na"
         },
-        "price": 21999.0
+        "price": 21999.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -1126,7 +1158,8 @@
             "sistema_de_secado": "-",
             "timer_/_temporizador": "No"
         },
-        "price": 22499.0
+        "price": 22499.0,
+        "brand": "WHIRLPOOL"
     },
     {
         "specs": {
@@ -1155,7 +1188,8 @@
             "timer_/_temporizador": "No",
             "tipo_de_agitador": "Pulsador"
         },
-        "price": 11499.0
+        "price": 11499.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -1210,7 +1244,8 @@
             "tipo_de_control": "Perillas",
             "tipo_de_corriente": "127"
         },
-        "price": 13999.0
+        "price": 13999.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -1252,7 +1287,8 @@
             "timer_/_temporizador": "Si",
             "tipo": "Carga frontal"
         },
-        "price": 20999.0
+        "price": 20999.0,
+        "brand": "LG"
     },
     {
         "specs": {
@@ -1284,7 +1320,8 @@
             "timer_/_temporizador": "S\u00ed",
             "tipo": "Front load"
         },
-        "price": 20499.0
+        "price": 20499.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -1334,7 +1371,8 @@
             "tipo_de_control": "Hibrido, perilla + display",
             "tipo_de_corriente": "127"
         },
-        "price": 17599.0
+        "price": 17599.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -1389,7 +1427,8 @@
             "velocidad_maxima": "770 revoluciones por minuto",
             "ventana": "S\u00ed"
         },
-        "price": 17699.0
+        "price": 17699.0,
+        "brand": "WHIRLPOOL"
     },
     {
         "specs": {
@@ -1436,7 +1475,8 @@
             "sistema_de_lavado": "Deep clean con agitador",
             "sistema_de_limpeza": "Si"
         },
-        "price": 7999.0
+        "price": 7999.0,
+        "brand": "MIDEA"
     },
     {
         "specs": {
@@ -1484,7 +1524,8 @@
             "tipo_de_control": "Perillas",
             "tipo_de_corriente": "127"
         },
-        "price": 16399.0
+        "price": 16399.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -1526,11 +1567,13 @@
             "seleccion_de_temperaturas": "Autom\u00e1tico",
             "sistema_de_lavado": "Wave impeller"
         },
-        "price": 7199.0
+        "price": 7199.0,
+        "brand": "MIDEA"
     },
     {
         "specs": {},
-        "price": 25999.0
+        "price": 25999.0,
+        "brand": "LG"
     },
     {
         "specs": {
@@ -1586,7 +1629,8 @@
             "ubicacion_de_controles": "Frontal",
             "ventana": "S\u00ed"
         },
-        "price": 27999.0
+        "price": 27999.0,
+        "brand": "MAYTAG"
     },
     {
         "specs": {
@@ -1643,7 +1687,8 @@
             "ubicacion_de_controles": "Frontal",
             "ventana": "S\u00ed"
         },
-        "price": 23399.0
+        "price": 23399.0,
+        "brand": "MAYTAG"
     },
     {
         "specs": {
@@ -1673,11 +1718,13 @@
             "sistema_de_secado": "No",
             "timer_/_temporizador": "Si"
         },
-        "price": 10799.0
+        "price": 10799.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {},
-        "price": 28999.0
+        "price": 28999.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -1735,11 +1782,13 @@
             "tipo_de_control": "Perillas",
             "tipo_de_corriente": "127"
         },
-        "price": 12139.0
+        "price": 12139.0,
+        "brand": "MABE"
     },
     {
         "specs": {},
-        "price": 28999.0
+        "price": 28999.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -1796,15 +1845,18 @@
             "unidad_de_venta": "Por pieza",
             "ventana": "Cristal"
         },
-        "price": 11499.0
+        "price": 11499.0,
+        "brand": "MABE"
     },
     {
         "specs": {},
-        "price": 20799.0
+        "price": 20799.0,
+        "brand": "WHIRLPOOL"
     },
     {
         "specs": {},
-        "price": 33999.0
+        "price": 33999.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -1856,7 +1908,8 @@
             "ubicacion_de_controles": "Superior",
             "ventana": "Vidrio templado"
         },
-        "price": 11399.0
+        "price": 11399.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -1912,11 +1965,13 @@
             "tipo_de_control": "Perillas",
             "tipo_de_corriente": "127"
         },
-        "price": 13299.0
+        "price": 13299.0,
+        "brand": "MABE"
     },
     {
         "specs": {},
-        "price": 29999.0
+        "price": 29999.0,
+        "brand": ""
     },
     {
         "specs": {
@@ -1974,11 +2029,13 @@
             "tipo_de_control": "Perillas",
             "tipo_de_corriente": "127"
         },
-        "price": 9999.0
+        "price": 9999.0,
+        "brand": "MABE"
     },
     {
         "specs": {},
-        "price": 29999.0
+        "price": 29999.0,
+        "brand": ""
     },
     {
         "specs": {
@@ -2035,7 +2092,8 @@
             "tipo_de_control": "Perillas",
             "tipo_de_corriente": "127"
         },
-        "price": 22399.0
+        "price": 22399.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -2085,15 +2143,18 @@
             "ubicacion_de_controles": "Superior",
             "ventana": "Pl\u00e1stico"
         },
-        "price": 9699.0
+        "price": 9699.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {},
-        "price": 25999.0
+        "price": 25999.0,
+        "brand": ""
     },
     {
         "specs": {},
-        "price": 29999.0
+        "price": 29999.0,
+        "brand": ""
     },
     {
         "specs": {
@@ -2139,19 +2200,23 @@
             "ubicacion_de_controles": "Panel trasero",
             "velocidad_maxima": "Centrifugado 770"
         },
-        "price": 14999.0
+        "price": 14999.0,
+        "brand": "WHIRLPOOL"
     },
     {
         "specs": {},
-        "price": 23999.0
+        "price": 23999.0,
+        "brand": ""
     },
     {
         "specs": {},
-        "price": 23999.0
+        "price": 23999.0,
+        "brand": ""
     },
     {
         "specs": {},
-        "price": 33999.0
+        "price": 33999.0,
+        "brand": ""
     },
     {
         "specs": {
@@ -2181,11 +2246,13 @@
             "sistema_de_secado": "No",
             "timer_/_temporizador": "Si"
         },
-        "price": 22999.0
+        "price": 22999.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {},
-        "price": 33999.0
+        "price": 33999.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -2224,7 +2291,8 @@
             "timer_/_temporizador": "Si",
             "tipo": "Smartthings - smart check - smart control"
         },
-        "price": 40899.0
+        "price": 40899.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -2255,7 +2323,8 @@
             "sistema_de_secado": "-",
             "timer_/_temporizador": "Si"
         },
-        "price": 18699.0
+        "price": 18699.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -2286,7 +2355,8 @@
             "timer_/_temporizador": "Si",
             "tipo_de_control": "Digital y perilla"
         },
-        "price": 14999.0
+        "price": 14999.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -2333,7 +2403,8 @@
             "tipo_de_control": "Display led",
             "tipo_de_corriente": "127v 60hz"
         },
-        "price": 15199.0
+        "price": 15199.0,
+        "brand": "HAIER"
     },
     {
         "specs": {
@@ -2383,7 +2454,8 @@
             "unidad_de_venta": "Por pieza",
             "ventana": "Cristal"
         },
-        "price": 14499.0
+        "price": 14499.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -2433,7 +2505,8 @@
             "unidad_de_venta": "Por pieza",
             "velocidad_maxima": "1100  rpm"
         },
-        "price": 27599.0
+        "price": 27599.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -2485,7 +2558,8 @@
             "unidad_de_venta": "Por pieza",
             "ventana": "Cristal"
         },
-        "price": 26899.0
+        "price": 26899.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -2498,7 +2572,8 @@
             "material": "Si",
             "peso": "100 kg"
         },
-        "price": 21999.0
+        "price": 21999.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -2536,7 +2611,8 @@
             "tipo_de_puerta": "Puerta reversible de vidrio ahumado",
             "tipo_de_sistema": "Na"
         },
-        "price": 20899.0
+        "price": 20899.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -2575,7 +2651,8 @@
             "tipo_de_gas": "Electrica",
             "tipo_de_sistema": "Na"
         },
-        "price": 15848.0
+        "price": 15848.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -2600,7 +2677,8 @@
             "smart": "No",
             "timer_/_temporizador": "S/n"
         },
-        "price": 16199.0
+        "price": 16199.0,
+        "brand": "MAYTAG"
     },
     {
         "specs": {
@@ -2638,7 +2716,8 @@
             "tipo_de_gas": "-",
             "tipo_de_lavado": "Normal, servicio pesado, encamado, prensa perm ,delicados."
         },
-        "price": 38499.0
+        "price": 38499.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -2673,7 +2752,8 @@
             "timer_/_temporizador": "Si",
             "tipo_de_gas": "Natural"
         },
-        "price": 11999.0
+        "price": 11999.0,
+        "brand": "LG"
     },
     {
         "specs": {
@@ -2716,7 +2796,8 @@
             "timer_/_temporizador": "Si",
             "tipo_de_corriente": "110"
         },
-        "price": 12999.0
+        "price": 12999.0,
+        "brand": "LG"
     },
     {
         "specs": {
@@ -2745,7 +2826,8 @@
             "timer_/_temporizador": "No",
             "tipo": "Carga frontal"
         },
-        "price": 45999.0
+        "price": 45999.0,
+        "brand": "MAYTAG"
     },
     {
         "specs": {
@@ -2776,7 +2858,8 @@
             "sistema_de_secado": "-",
             "timer_/_temporizador": "Si"
         },
-        "price": 25999.0
+        "price": 25999.0,
+        "brand": "LG"
     },
     {
         "specs": {
@@ -2801,7 +2884,8 @@
             "sistema_de_secado": "Gas",
             "timer_/_temporizador": "Si"
         },
-        "price": 17999.0
+        "price": 17999.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -2848,7 +2932,8 @@
             "tipo": "Carga superior",
             "tipo_de_control": "Perillas"
         },
-        "price": 14899.0
+        "price": 14899.0,
+        "brand": "MAYTAG"
     },
     {
         "specs": {
@@ -2885,7 +2970,8 @@
             "tipo_de_puerta": "Puerta reversible de vidrio ahumado",
             "tipo_de_sistema": "Na"
         },
-        "price": 15848.0
+        "price": 15848.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -2923,7 +3009,8 @@
             "tipo_de_gas": "Lp",
             "tipo_de_sistema": "Na"
         },
-        "price": 20899.0
+        "price": 20899.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -2958,7 +3045,8 @@
             "tipo": "Carga frontal",
             "tipo_de_corriente": "110"
         },
-        "price": 12349.0
+        "price": 12349.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -2994,7 +3082,8 @@
             "tipo_de_control": "Perillas",
             "tipo_de_corriente": "220 v v"
         },
-        "price": 24999.0
+        "price": 24999.0,
+        "brand": "GE"
     },
     {
         "specs": {
@@ -3034,7 +3123,8 @@
             "tipo_de_puerta": "Cristal reversible",
             "tipo_de_sistema": "El\u00e9ctrica"
         },
-        "price": 17499.0
+        "price": 17499.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -3074,7 +3164,8 @@
             "tipo_de_puerta": "Cristar reversible",
             "tipo_de_sistema": "El\u00e9ctrica"
         },
-        "price": 17659.0
+        "price": 17659.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -3106,7 +3197,8 @@
             "tipo_de_gas": "Lp convertible a natural",
             "tipo_de_sistema": "Aqua saver green"
         },
-        "price": 23999.0
+        "price": 23999.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -3138,7 +3230,8 @@
             "tipo_de_gas": "Lp convertible a natural",
             "tipo_de_sistema": "Aqua saver green"
         },
-        "price": 25999.0
+        "price": 25999.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -3167,7 +3260,8 @@
             "timer_/_temporizador": "Na",
             "tipo": "Carga frontal"
         },
-        "price": 23399.0
+        "price": 23399.0,
+        "brand": "MAYTAG"
     },
     {
         "specs": {
@@ -3210,7 +3304,8 @@
             "ubicacion_de_controles": "Frontal",
             "ventana": "S\u00ed"
         },
-        "price": 21999.0
+        "price": 21999.0,
+        "brand": "WHIRLPOOL"
     },
     {
         "specs": {
@@ -3242,7 +3337,8 @@
             "tipo_de_gas": "Natural",
             "tipo_de_sistema": "Aqua saver green"
         },
-        "price": 23999.0
+        "price": 23999.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -3281,7 +3377,8 @@
             "tipo_de_puerta": "Cristal reversible",
             "tipo_de_sistema": "Gas lp convertible a gas natural"
         },
-        "price": 17659.0
+        "price": 17659.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -3321,7 +3418,8 @@
             "tipo_de_puerta": "Cristal reversible",
             "tipo_de_sistema": "El\u00e9ctrica"
         },
-        "price": 11499.0
+        "price": 11499.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -3361,7 +3459,8 @@
             "tipo_de_puerta": "Puerta de cristal reversible",
             "tipo_de_sistema": "Gas lp"
         },
-        "price": 17499.0
+        "price": 17499.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -3387,7 +3486,8 @@
             "tipo_de_gas": "Natural",
             "tipo_de_sistema": "Aqua saver green"
         },
-        "price": 29999.0
+        "price": 29999.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -3419,7 +3519,8 @@
             "tipo_de_gas": "Lp convertible a natural",
             "tipo_de_sistema": "Aqua saver green"
         },
-        "price": 29999.0
+        "price": 29999.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -3456,7 +3557,8 @@
             "tipo_de_corriente": "127 volts",
             "tipo_de_sistema": "Gas lp convertible a gas natutral"
         },
-        "price": 11499.0
+        "price": 11499.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -3488,7 +3590,8 @@
             "tipo_de_gas": "Natural",
             "tipo_de_sistema": "Aqua saver green"
         },
-        "price": 25999.0
+        "price": 25999.0,
+        "brand": "MABE"
     },
     {
         "specs": {
@@ -3527,7 +3630,8 @@
             "tipo_de_control": "Digital y perilla",
             "tipo_de_gas": "Natural convertible a lp"
         },
-        "price": 15999.0
+        "price": 15999.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -3565,7 +3669,8 @@
             "tipo": "Gas",
             "tipo_de_gas": "Natural convertible a lp"
         },
-        "price": 14899.0
+        "price": 14899.0,
+        "brand": "SAMSUNG"
     },
     {
         "specs": {
@@ -3596,6 +3701,7 @@
             "tipo": "Para lavadora",
             "tipo_de_corriente": "115"
         },
-        "price": 3899.0
+        "price": 3899.0,
+        "brand": ""
     }
 ]

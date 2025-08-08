@@ -140,7 +140,7 @@ class DetailScraper(BaseScraper):
 
     def __post_init__(self):
         self.driver.get(self.detail_url)
-        time.sleep(2)  # Wait for the page to load
+        time.sleep(1)  # Wait for the page to load
         self._ensure_key_product_tags_exists(
             self.KEY_PRODUCT_TAG, by_type=By.ID, timeout=10
         )
@@ -192,6 +192,15 @@ class DetailScraper(BaseScraper):
 
         return product_specs
 
+    def get_product_brand(self) -> str:
+        """
+        Get the brand of the product from the detail page.
+        """
+        brand_node = self._soup.find("div", class_="product-brand")
+        if brand_node:
+            return brand_node.text.strip()
+        return "Unknown"
+
     def get_all_data(self) -> dict:
         """
         Get all data from the product detail page.
@@ -199,5 +208,6 @@ class DetailScraper(BaseScraper):
         final_data = {}
         final_data["specs"] = self.get_product_details()
         final_data["price"] = self.get_price()
+        final_data["brand"] = self.get_product_brand()
 
         return final_data
