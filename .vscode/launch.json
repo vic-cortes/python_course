@@ -35,7 +35,7 @@
       "env": {
         "PYTHONPATH": "${workspaceFolder}/project"
       }
-    }
+    },
     {
       "name": "[PROJECT] Craw4ai",
       "type": "debugpy",
@@ -47,6 +47,25 @@
       "cwd": "${workspaceFolder}/project",
       "env": {
         "PYTHONPATH": "${workspaceFolder}/project"
+      }
+    },
+    {
+      "name": "[PROJECT] FastAPI",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "project.src.api.server:app",
+        "--reload",
+        "--port",
+        "8000",
+        "--host",
+        "0.0.0.0"
+      ],
+      "jinja": true,
+      "justMyCode": false,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
       }
     }
   ]

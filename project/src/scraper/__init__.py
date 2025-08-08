@@ -12,3 +12,6 @@ __all__ = [
     "HomeDepotDetailScraper",
     "get_firefox_driver",
 ]
+
+
+SUPPORTED_SCRAPERS = ["liverpool", "home_depot"]
