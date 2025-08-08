@@ -1,4 +1,4 @@
-.PHONY: run_api db_up
+.PHONY: run_api db_up test_db_connection db-create-migrations ruff_check
 
 run_api:
 	@echo "Starting FastAPI server..."
@@ -15,3 +15,12 @@ test_db_connection:
 ruff_check:
 	@echo "Running ruff check..."
 	ruff check src --fix .
+
+db-create-migrations: message
+ifndef message
+	@echo "Please provide a message for the migration using 'make db-create-migrations message='<your message here>'"
+else
+	@echo "Creating migrations for Api"
+	uv run alembic revision --autogenerate -m "${message}"
+endif
+
