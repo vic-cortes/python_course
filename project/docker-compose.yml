@@ -3,6 +3,13 @@
 services:
   scraper-db:
     image: pgvector/pgvector:pg17
-    env_file: .env
+    # Uncomment for environment variables from .env file
+    # env_file: .env
     ports:
       - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: scraper
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: 5432
