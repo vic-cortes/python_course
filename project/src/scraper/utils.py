@@ -39,8 +39,8 @@ def get_firefox_driver() -> webdriver.Firefox:
     Get a Firefox WebDriver instance.
     """
     options = Options()
-    # options.headless = False
-    options.add_argument("--headless")
+    options.headless = False
+    # options.add_argument("--headless")
     options.set_preference("dom.webdriver.enabled", False)
     options.set_preference("useAutomationExtension", False)
     options.set_preference(

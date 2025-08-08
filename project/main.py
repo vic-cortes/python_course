@@ -67,5 +67,5 @@ def run_scraper(scraper_name: str) -> None:
 
 
 if __name__ == "__main__":
-    scraper_name = "liverpool"
+    scraper_name = "home_depot"
     run_scraper(scraper_name)
