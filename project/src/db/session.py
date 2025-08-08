@@ -15,7 +15,7 @@ class DbConfig:
     DATABASE_PORT = os.getenv("POSTGRES_PORT", "5432")
 
     SQLALCHEMY_DATABASE_URI = (
-        f"postgresql+psycopg://{DATABASE_USERNAME}:{DATABASE_PASSWORD}@"
+        f"postgresql+psycopg2://{DATABASE_USERNAME}:{DATABASE_PASSWORD}@"
         f"{DATABASE_HOST}:{DATABASE_PORT}/{DATABASE_NAME}"
     )
 
