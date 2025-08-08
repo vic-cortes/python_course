@@ -1,5 +1,6 @@
-from db.base_class import Base
 from sqlalchemy import Column, Integer, String
+
+from ..db.base_class import Base
 
 
 class Client(Base):
