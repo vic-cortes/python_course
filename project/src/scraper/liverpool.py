@@ -178,5 +178,6 @@ class DetailScraper(BaseScraper):
         final_data = {}
         final_data["specs"] = self.get_product_details()
         final_data["price"] = self.get_price()
+        final_data["url"] = self.detail_url
 
         return final_data

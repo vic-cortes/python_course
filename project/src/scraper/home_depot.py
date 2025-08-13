@@ -33,7 +33,7 @@ class ParentScraper(BaseScraper):
         """
         self.driver.get(PRODUCT_URL)
         # click window message
-        time.sleep(2)  # Wait for the page to load
+        time.sleep(5)  # Wait for the page to load
         CSS_SELECTOR = ".dialogStore--icon--highlightOff"
         self.driver.find_element(By.CSS_SELECTOR, CSS_SELECTOR).click()
 
@@ -140,7 +140,7 @@ class DetailScraper(BaseScraper):
 
     def __post_init__(self):
         self.driver.get(self.detail_url)
-        time.sleep(1)  # Wait for the page to load
+        time.sleep(0.2)  # Wait for the page to load
         self._ensure_key_product_tags_exists(
             self.KEY_PRODUCT_TAG, by_type=By.ID, timeout=10
         )
@@ -209,5 +209,6 @@ class DetailScraper(BaseScraper):
         final_data["specs"] = self.get_product_details()
         final_data["price"] = self.get_price()
         final_data["brand"] = self.get_product_brand()
+        final_data["url"] = self.detail_url
 
         return final_data

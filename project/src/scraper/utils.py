@@ -34,13 +34,17 @@ def normalize_string(raw_string: str) -> str:
     return raw_string
 
 
-def get_firefox_driver() -> webdriver.Firefox:
+def get_firefox_driver(headless: bool = False) -> webdriver.Firefox:
     """
     Get a Firefox WebDriver instance.
     """
     options = Options()
-    options.headless = False
-    # options.add_argument("--headless")
+
+    if headless:
+        options.add_argument("--headless")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--window-size=1920,1080")
+
     options.set_preference("dom.webdriver.enabled", False)
     options.set_preference("useAutomationExtension", False)
     options.set_preference(

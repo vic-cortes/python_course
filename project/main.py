@@ -33,7 +33,7 @@ def run_scraper(scraper_name: str) -> None:
     ParentScraper = SUPPORTED_SCRAPERS[scraper_name]["parent"]
     DetailScraper = SUPPORTED_SCRAPERS[scraper_name]["detail"]
 
-    driver = get_firefox_driver()
+    driver = get_firefox_driver(headless=True)
     scraper: BaseScraper = ParentScraper(driver=driver)
 
     product_links = scraper.get_all_links()
