@@ -33,6 +33,7 @@ class ParentScraper(BaseScraper):
         Navigate to the Liverpool home page.
         """
         self.driver.get(PRODUCT_URL)
+        time.sleep(2)  # Wait for the page to load
 
     def product_node(self, item: Tag) -> str:
         """

@@ -33,6 +33,9 @@ def tarea_sincrona(valor):
 
 
 def store_data(scraper: BaseScraper, all_data):
+    if not all_data:
+        print("No data to store.")
+        return
     current_time = datetime.now().strftime("%Y%m%d_%H_00")
     current_client_path = DATA_PATH / scraper.service_name
 
@@ -101,7 +104,7 @@ def run_scraper(scraper_name: str) -> None:
     ParentScraper = SUPPORTED_SCRAPERS[scraper_name]["parent"]
     DetailScraper = SUPPORTED_SCRAPERS[scraper_name]["detail"]
 
-    driver = get_firefox_driver(headless=True)
+    driver = get_firefox_driver(headless=False)
     scraper: BaseScraper = ParentScraper(driver=driver)
 
     product_links = scraper.get_all_links()
