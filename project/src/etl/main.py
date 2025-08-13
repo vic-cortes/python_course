@@ -89,26 +89,37 @@ class LiverpoolEtlSchema:
         }
 
 
-available_paths = [DATA_PATH / scraper for scraper in SUPPORTED_SCRAPERS]
+# available_paths = [DATA_PATH / scraper for scraper in SUPPORTED_SCRAPERS]
+# print("Available data paths:", available_paths)
 
-print("Available data paths:", available_paths)
+SUPPORTED_ETL_SCHEMAS = {"liverpool": LiverpoolEtlSchema}
 
-data_path = DATA_PATH / "liverpool"
-data_files = list(data_path.glob("*.json"))
 
-data_contents = []
+def read_data_from_files(scraper_name: str) -> None:
+    """
+    Reads data from JSON files from data directory
+    """
+    if scraper_name not in SUPPORTED_ETL_SCHEMAS:
+        raise ValueError(f"Unsupported scraper: {scraper_name}")
 
-for file in data_files:
-    with open(file, "r") as f:
-        json_data = json.load(f)
+    EtlScraperSchema = SUPPORTED_ETL_SCHEMAS[scraper_name]
 
-        for element in json_data:
-            schema = LiverpoolEtlSchema(**element)
+    data_path = DATA_PATH / scraper_name
+    data_files = list(data_path.glob("*.json"))
 
-            if new_data := schema.to_dict():
-                data_contents.append(schema.to_dict())
+    data_contents = []
 
-print(f"Data contents from {data_contents[0]}")
+    for file in data_files:
+        with open(file, "r") as f:
+            json_data = json.load(f)
+
+            for element in json_data:
+                schema = EtlScraperSchema(**element)
+
+                if new_data := schema.to_dict():
+                    data_contents.append(new_data)
+
+    print(f"Data contents from {data_contents[0]}")
 
 
 # Read all files in the data directory
