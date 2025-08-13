@@ -2,7 +2,7 @@ import json
 from dataclasses import dataclass
 
 from src.db.session import SessionLocal
-from src.models.clients import Product
+from src.models.products import Product
 from src.scraper.constants import DATA_PATH
 
 # available_paths = [DATA_PATH / scraper for scraper in SUPPORTED_SCRAPERS]
