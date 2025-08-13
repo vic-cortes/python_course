@@ -71,8 +71,10 @@ async def arun_scraper(scraper_name: str) -> None:
     with ThreadPoolExecutor(max_workers=20) as pool:
 
         async def execute_and_store_data(driver, url):
+            print(f"== Scraping detail page: {url}")
             detail_scraper: BaseScraper = DetailScraper(driver=driver, detail_url=url)
             resultado = await loop.run_in_executor(pool, detail_scraper.get_all_data)
+            print(f"== Finished scraping detail page: {url}")
             all_data.append(resultado)
 
         tareas = [execute_and_store_data(driver, url) for url in product_links]
@@ -123,6 +125,6 @@ def run_scraper(scraper_name: str) -> None:
 
 
 if __name__ == "__main__":
-    scraper_name = "home_depot"
+    scraper_name = "liverpool"
     # run_scraper(scraper_name)
     asyncio.run(arun_scraper(scraper_name))

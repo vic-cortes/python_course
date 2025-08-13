@@ -176,8 +176,13 @@ class DetailScraper(BaseScraper):
         Get all data from the product detail page.
         """
         final_data = {}
-        final_data["specs"] = self.get_product_details()
-        final_data["price"] = self.get_price()
-        final_data["url"] = self.detail_url
+
+        try:
+            final_data["specs"] = self.get_product_details()
+            final_data["price"] = self.get_price()
+            final_data["url"] = self.detail_url
+        except Exception as e:
+            print(f"Error occurred while scraping product details: {e}")
+            final_data = {}
 
         return final_data
