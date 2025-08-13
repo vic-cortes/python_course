@@ -17,3 +17,4 @@ class EtlSchema:
     ancho: str
     alto: str
     capacidad: str
+    client_name: str
