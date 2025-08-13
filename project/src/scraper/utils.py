@@ -54,7 +54,7 @@ def get_firefox_driver(headless: bool = False) -> webdriver.Firefox:
     options.set_capability("pageLoadStrategy", STRATEGY)
     capabilities = DesiredCapabilities.FIREFOX
     capabilities["pageLoadStrategy"] = STRATEGY
-    capabilities["marionette"] = True
+    # capabilities["marionette"] = True
 
     service = Service(executable_path=GECKO_DRIVER_PATH, log_output=os.path.devnull)
     driver = webdriver.Firefox(service=service, options=options)

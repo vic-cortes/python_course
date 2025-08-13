@@ -31,9 +31,10 @@ class ParentScraper(BaseScraper):
         """
         Navigate to the Home Depot home page.
         """
+        print(f"* Navigating to {BASE_URL}")
         self.driver.get(PRODUCT_URL)
         # click window message
-        time.sleep(5)  # Wait for the page to load
+        time.sleep(10)  # Wait for the page to load
         CSS_SELECTOR = ".dialogStore--icon--highlightOff"
         self.driver.find_element(By.CSS_SELECTOR, CSS_SELECTOR).click()
 
@@ -139,10 +140,11 @@ class DetailScraper(BaseScraper):
     KEY_PRODUCT_TAG = "pdp-spec-tecnicas"
 
     def __post_init__(self):
+        print(f"* Scraping detail page: {self.detail_url}")
         self.driver.get(self.detail_url)
         time.sleep(0.2)  # Wait for the page to load
         self._ensure_key_product_tags_exists(
-            self.KEY_PRODUCT_TAG, by_type=By.ID, timeout=10
+            self.KEY_PRODUCT_TAG, by_type=By.ID, timeout=20
         )
         self._soup = BeautifulSoup(self.driver.page_source, "html.parser")
 
@@ -206,9 +208,14 @@ class DetailScraper(BaseScraper):
         Get all data from the product detail page.
         """
         final_data = {}
-        final_data["specs"] = self.get_product_details()
-        final_data["price"] = self.get_price()
-        final_data["brand"] = self.get_product_brand()
-        final_data["url"] = self.detail_url
+
+        try:
+            final_data["specs"] = self.get_product_details()
+            final_data["price"] = self.get_price()
+            final_data["brand"] = self.get_product_brand()
+            final_data["url"] = self.detail_url
+        except Exception as e:
+            print(f"Error scraping data from {self.detail_url}: {e}")
+            final_data = {}
 
         return final_data
