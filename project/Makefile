@@ -1,4 +1,4 @@
-.PHONY: run_api db_up test_db_connection db-create-migrations ruff_check
+.PHONY: run_api db_up test_db_connection db-create-migrations ruff_check message migrate
 
 run_api:
 	@echo "Starting FastAPI server..."
@@ -24,3 +24,6 @@ else
 	uv run alembic revision --autogenerate -m "${message}"
 endif
 
+migrate:
+	@echo "Applying migrations to the database"
+	uv run alembic upgrade head
