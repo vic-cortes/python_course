@@ -1,10 +1,14 @@
 import json
 from dataclasses import dataclass
 
+from src.db.session import SessionLocal
+from src.models.clients import Product
 from src.scraper.constants import DATA_PATH
 
 # available_paths = [DATA_PATH / scraper for scraper in SUPPORTED_SCRAPERS]
 # print("Available data paths:", available_paths)
+
+session = SessionLocal()
 
 
 @dataclass
@@ -177,10 +181,13 @@ def read_data_from_files(scraper_name: str) -> None:
 
                 if new_data := schema.to_dict():
                     data_contents.append(new_data)
+                    product = Product(**new_data)
+                    session.add(product)
+                    session.commit()
 
     print(f"Data contents from {data_contents[0]}")
 
 
 if __name__ == "__main__":
-    scraper_name = "home_depot"  # Example scraper name
+    scraper_name = "liverpool"  # Example scraper name
     read_data_from_files(scraper_name)
