@@ -1,10 +1,10 @@
 import json
 from dataclasses import dataclass
 
-from src.scraper import SUPPORTED_SCRAPERS
 from src.scraper.constants import DATA_PATH
 
-print("Supported scrapers:", SUPPORTED_SCRAPERS)
+# available_paths = [DATA_PATH / scraper for scraper in SUPPORTED_SCRAPERS]
+# print("Available data paths:", available_paths)
 
 
 @dataclass
@@ -89,10 +89,69 @@ class LiverpoolEtlSchema:
         }
 
 
-# available_paths = [DATA_PATH / scraper for scraper in SUPPORTED_SCRAPERS]
-# print("Available data paths:", available_paths)
+@dataclass
+class HomeDepotEtlSchema:
+    client_name: str = "homedepot"
+    brand: str = DEFAULT_NOT_AVAILABLE
+    specs: dict = None
+    price: float = 0.0
+    url: str = ""
+    product_type: str = "lavadora"
 
-SUPPORTED_ETL_SCHEMAS = {"liverpool": LiverpoolEtlSchema}
+    @property
+    def color(self):
+        return self.specs.get("color", DEFAULT_NOT_AVAILABLE).upper().strip()
+
+    @property
+    def rpm(self):
+        return self.specs.get("potencia", DEFAULT_NOT_AVAILABLE).upper().strip()
+
+    @property
+    def model(self):
+        return self.specs.get("modelo", DEFAULT_NOT_AVAILABLE).upper().strip()
+
+    @property
+    def ancho(self):
+        return (
+            self.specs.get("ancho_del_producto", DEFAULT_NOT_AVAILABLE).upper().strip()
+        )
+
+    @property
+    def alto(self):
+        return (
+            self.specs.get("alto_del_producto", DEFAULT_NOT_AVAILABLE).upper().strip()
+        )
+
+    @property
+    def capacidad(self):
+        return (
+            self.specs.get("capacidad_/_tamano", DEFAULT_NOT_AVAILABLE).upper().strip()
+        )
+
+    def to_dict(self):
+
+        if self.specs is None:
+            return {}
+
+        return {
+            "client_name": self.client_name,
+            "brand": self.brand,
+            "color": self.color,
+            "price": self.price,
+            "url": self.url,
+            "rpm": self.rpm,
+            "product_type": self.product_type,
+            "model": self.model,
+            "ancho": self.ancho,
+            "alto": self.alto,
+            "capacidad": self.capacidad,
+        }
+
+
+SUPPORTED_ETL_SCHEMAS = {
+    "liverpool": LiverpoolEtlSchema,
+    "home_depot": HomeDepotEtlSchema,
+}
 
 
 def read_data_from_files(scraper_name: str) -> None:
@@ -122,4 +181,6 @@ def read_data_from_files(scraper_name: str) -> None:
     print(f"Data contents from {data_contents[0]}")
 
 
-# Read all files in the data directory
+if __name__ == "__main__":
+    scraper_name = "home_depot"  # Example scraper name
+    read_data_from_files(scraper_name)
