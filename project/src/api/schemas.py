@@ -13,3 +13,17 @@ class ScraperSchema(BaseModel):
     alto: str
     capacidad: str
     client_name: str
+
+
+class MetadataSchema(BaseModel):
+    total_items: int
+    total_pages: int
+    current_page: int
+    page_size: int
+    has_next: bool
+    has_previous: bool
+
+
+class ResponseSchema(BaseModel):
+    items: list[ScraperSchema]
+    metadata: MetadataSchema

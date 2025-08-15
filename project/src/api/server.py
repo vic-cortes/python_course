@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from ..db.session import SessionLocal
 from ..scraper import SUPPORTED_SCRAPERS
 from .crud import get_client_product
-from .schemas import ScraperSchema
+from .schemas import ResponseSchema, ScraperSchema
 
 app = FastAPI()
 
@@ -39,15 +39,15 @@ async def health_check():
     }
 
 
-@app.get("/data/{scraper_name}", response_model=list[ScraperSchema] | dict)
+@app.get("/data/{scraper_name}", response_model=ResponseSchema | dict)
 async def get_data(scraper_name: str, db: Session = Depends(get_db)):
     scraper_name = scraper_name.lower()
 
     if scraper_name not in SUPPORTED_SCRAPERS:
         return {"error": f"Unsupported scraper name: {scraper_name}"}
 
-    client_products = get_client_product(db, client_name=scraper_name)
+    client_products, metadata = get_client_product(db, client_name=scraper_name)
     # if not client_products:
     #     return {"error": f"No products found for client: {scraper_name}"}
 
-    return client_products
+    return {"items": client_products.items, "metadata": metadata}
