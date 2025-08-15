@@ -55,6 +55,13 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Echo the user message."""
+    user = update.effective_user  # o update.message.from_user
+    user_id = user.id
+    first_name = user.first_name
+    last_name = user.last_name  # puede ser None
+    username = user.username  #
+
+    print(f"Received message: {update.message.text}")
     await update.message.reply_text(update.message.text)
 
 
