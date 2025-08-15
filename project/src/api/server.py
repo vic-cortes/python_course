@@ -1,4 +1,3 @@
-
 from fastapi import Depends, FastAPI, Request, Response
 from sqlalchemy.orm import Session
 
@@ -40,15 +39,15 @@ async def health_check():
     }
 
 
-@app.get("/data/{scraper_name}", response_model=list[ScraperSchema])
+@app.get("/data/{scraper_name}", response_model=list[ScraperSchema] | dict)
 async def get_data(scraper_name: str, db: Session = Depends(get_db)):
     scraper_name = scraper_name.lower()
 
     if scraper_name not in SUPPORTED_SCRAPERS:
-        return {"error": "Unsupported scraper name"}
+        return {"error": f"Unsupported scraper name: {scraper_name}"}
 
     client_products = get_client_product(db, client_name=scraper_name)
-    if not client_products:
-        return {"error": "No products found for this client"}
+    # if not client_products:
+    #     return {"error": f"No products found for client: {scraper_name}"}
 
     return client_products

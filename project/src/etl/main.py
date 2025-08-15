@@ -95,7 +95,7 @@ class LiverpoolEtlSchema:
 
 @dataclass
 class HomeDepotEtlSchema:
-    client_name: str = "homedepot"
+    client_name: str = "home_depot"
     brand: str = DEFAULT_NOT_AVAILABLE
     specs: dict = None
     price: float = 0.0
