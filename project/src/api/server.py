@@ -1,11 +1,9 @@
-import json
 
 from fastapi import Depends, FastAPI, Request, Response
 from sqlalchemy.orm import Session
 
 from ..db.session import SessionLocal
 from ..scraper import SUPPORTED_SCRAPERS
-from ..scraper.constants import DATA_PATH
 from .crud import get_client_product
 from .schemas import ScraperSchema
 
