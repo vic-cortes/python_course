@@ -1,4 +1,4 @@
-.PHONY: run_api db_up test_db_connection db-create-migrations ruff_check message migrate
+.PHONY: run_api db_up test_db_connection db-create-migrations ruff_check message migrate run_bot
 
 run_api:
 	@echo "Starting FastAPI server..."
@@ -27,3 +27,8 @@ endif
 migrate:
 	@echo "Applying migrations to the database"
 	uv run alembic upgrade head
+
+
+run_bot:
+	@echo "Starting Telegram bot..."
+	uv run python src/bot/echobot.py
