@@ -2446,6 +2446,13 @@ dev = [
     { name = "notebook" },
     { name = "ruff" },
 ]
+serverless = [
+    { name = "fastapi" },
+    { name = "mangum" },
+    { name = "psycopg2-binary" },
+    { name = "python-dotenv" },
+    { name = "sqlalchemy" },
+]
 
 [package.metadata]
 requires-dist = [
@@ -2471,6 +2478,13 @@ dev = [
     { name = "ipython", specifier = ">=8.37.0" },
     { name = "notebook", specifier = ">=7.4.4" },
     { name = "ruff", specifier = ">=0.12.5" },
+]
+serverless = [
+    { name = "fastapi", specifier = ">=0.116.1" },
+    { name = "mangum", specifier = ">=0.19.0" },
+    { name = "psycopg2-binary", specifier = ">=2.9.10" },
+    { name = "python-dotenv", specifier = ">=1.1.1" },
+    { name = "sqlalchemy", specifier = ">=2.0.42" },
 ]
 
 [[package]]

@@ -1,4 +1,4 @@
-.PHONY: run_api db_up test_db_connection db-create-migrations ruff_check message migrate run_bot deploy_serverless export_requirements
+.PHONY: run_api db_up test_db_connection db-create-migrations ruff_check message migrate run_bot deploy_serverless export_serverless_requirements
 
 run_api:
 	@echo "Starting FastAPI server..."
@@ -37,6 +37,6 @@ deploy_serverless:
 	@echo "Deploying to AWS Lambda..."
 	serverless deploy --stage dev
 
-export_requirements:
+export_serverless_requirements:
 	@echo "Exporting requirements..."
-	uv pip compile pyproject.toml -o requirements.txt
+	uv pip compile --group serverless -o requirements.txt
