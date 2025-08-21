@@ -43,16 +43,14 @@ functions:
     runtime: python3.10
     handler: src/api.server.handler
 
+    environment:
+      POSTGRES_USER: ${env:POSTGRES_USER}
+      POSTGRES_PASSWORD: ${env:POSTGRES_PASSWORD}
+      POSTGRES_DB: ${env:POSTGRES_DB}
+      POSTGRES_HOST: ${env:POSTGRES_HOST}
+      POSTGRES_PORT: ${env:POSTGRES_PORT}
+
+
 
 plugins:
-  - serverless-uv-requirements
   - serverless-python-requirements
-
-custom:
-  uv:
-    mode: compile         # o 'freeze'
-    source: pyproject.toml
-    output: requirements.txt
-
-pythonRequirements:
-  dockerizePip: non-linux

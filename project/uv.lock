@@ -2452,6 +2452,7 @@ serverless = [
     { name = "psycopg2-binary" },
     { name = "python-dotenv" },
     { name = "sqlalchemy" },
+    { name = "uvicorn" },
 ]
 
 [package.metadata]
@@ -2485,6 +2486,7 @@ serverless = [
     { name = "psycopg2-binary", specifier = ">=2.9.10" },
     { name = "python-dotenv", specifier = ">=1.1.1" },
     { name = "sqlalchemy", specifier = ">=2.0.42" },
+    { name = "uvicorn", specifier = ">=0.35.0" },
 ]
 
 [[package]]
