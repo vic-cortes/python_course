@@ -1,0 +1,26 @@
+service: 'web-scraper-project'
+
+frameworkVersion: '3'
+useDotenv: true
+
+package:
+  exclude:
+    - 'node_modules/**'
+    - 'venv/**'
+    - '*.pyc'
+    - '*.ipynb'
+    - '.vscode/**'
+    - 'data/**'
+    - 'sample.yml'
+    - 'package-lock.json'
+    - 'package.json'
+
+provider:
+  name: aws
+  stage: dev
+  region: ca-central-1
+  timeout: 15
+
+  apiGateway:
+    binaryMediaTypes:
+      - '*/*'
