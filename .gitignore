@@ -199,3 +199,4 @@ slidev_example/
 geckodriver
 chromedriver
 .DS_Store
+.serverless/

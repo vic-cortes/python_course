@@ -35,9 +35,6 @@ provider:
             - 's3:DeleteObject'
             - "s3:ListObject"
 
-  environment:
-    AWS_REGION_NAME: ca-central-1
-
 functions:
   api:
     runtime: python3.10
@@ -50,7 +47,10 @@ functions:
       POSTGRES_HOST: ${env:POSTGRES_HOST}
       POSTGRES_PORT: ${env:POSTGRES_PORT}
 
-
-
 plugins:
   - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    pythonBin: ./.venv/bin/python
+    usePipenv: true

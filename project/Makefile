@@ -35,7 +35,7 @@ run_bot:
 
 deploy_serverless:
 	@echo "Deploying to AWS Lambda..."
-	serverless deploy --stage dev
+	serverless deploy --stage dev --debug
 
 export_serverless_requirements:
 	@echo "Exporting requirements..."
