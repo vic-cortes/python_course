@@ -1,4 +1,4 @@
-.PHONY: run_api db_up test_db_connection db-create-migrations ruff_check message migrate run_bot
+.PHONY: run_api db_up test_db_connection db-create-migrations ruff_check message migrate run_bot deploy_serverless export_requirements
 
 run_api:
 	@echo "Starting FastAPI server..."
@@ -32,3 +32,11 @@ migrate:
 run_bot:
 	@echo "Starting Telegram bot..."
 	uv run python src/bot/echobot.py
+
+deploy_serverless:
+	@echo "Deploying to AWS Lambda..."
+	serverless deploy --stage dev
+
+export_requirements:
+	@echo "Exporting requirements..."
+	uv pip compile pyproject.toml -o requirements.txt

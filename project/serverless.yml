@@ -1,8 +1,5 @@
 service: 'web-scraper-project'
 
-frameworkVersion: '3'
-useDotenv: true
-
 package:
   exclude:
     - 'node_modules/**'
@@ -24,3 +21,38 @@ provider:
   apiGateway:
     binaryMediaTypes:
       - '*/*'
+
+  iam:
+    role:
+      statements:
+        - Effect: 'Allow'
+          Action:
+            - 's3:*'
+            - 's3-object-lambda:*'
+            - 's3:ListBucket'
+            - 's3:GetObject'
+            - 's3:PutObject'
+            - 's3:DeleteObject'
+            - "s3:ListObject"
+
+  environment:
+    AWS_REGION_NAME: ca-central-1
+
+functions:
+  api:
+    runtime: python3.10
+    handler: src/api.server.handler
+
+
+plugins:
+  - serverless-uv-requirements
+  - serverless-python-requirements
+
+custom:
+  uv:
+    mode: compile         # o 'freeze'
+    source: pyproject.toml
+    output: requirements.txt
+
+pythonRequirements:
+  dockerizePip: non-linux

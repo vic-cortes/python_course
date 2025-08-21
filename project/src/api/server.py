@@ -1,6 +1,7 @@
 from typing import Optional
 
 from fastapi import Depends, FastAPI, Request, Response
+from mangum import Mangum
 from sqlalchemy.orm import Session
 
 from ..db.session import SessionLocal
@@ -58,3 +59,6 @@ async def get_data(
     )
 
     return {"items": client_products.items, "metadata": metadata}
+
+
+handler = Mangum(app)
