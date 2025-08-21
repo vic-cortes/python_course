@@ -1,8 +1,14 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: qvitek
 service: 'web-scraper-project'
+
+frameworkVersion: '3'
+useDotenv: true
 
 package:
   exclude:
     - 'node_modules/**'
+    - '.venv/**'
     - 'venv/**'
     - '*.pyc'
     - '*.ipynb'
@@ -33,12 +39,12 @@ provider:
             - 's3:GetObject'
             - 's3:PutObject'
             - 's3:DeleteObject'
-            - "s3:ListObject"
+            - 's3:ListObject'
 
 functions:
   api:
     runtime: python3.10
-    handler: src/api.server.handler
+    handler: src/api/server.handler
 
     environment:
       POSTGRES_USER: ${env:POSTGRES_USER}
@@ -50,7 +56,7 @@ functions:
 plugins:
   - serverless-python-requirements
 
-custom:
-  pythonRequirements:
-    pythonBin: ./.venv/bin/python
-    usePipenv: true
+# custom:
+#   pythonRequirements:
+#     pythonBin: ./.venv/bin/python
+#     usePipenv: true
