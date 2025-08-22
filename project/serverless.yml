@@ -1,3 +1,5 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: vmcortesf
 service: 'web-scraper-project'
 
 package:
@@ -12,6 +14,21 @@ package:
     - 'sample.yml'
     - 'package-lock.json'
     - 'package.json'
+    - 'requirements.txt'
+    - 'docker-compose.yml'
+    - 'Makefile'
+    - 'README.md'
+    - '.env'
+    - 'uv.lock'
+    - 'pyproject.toml'
+    - '.nvrc'
+    - 'diagram.drawio'
+    - 'env.sample'
+    - '.python-version'
+    - 'alembic.ini'
+    - 'serverless.yml'
+    - '.ruff_cache/**'
+    - '__pycache__/**'
 
 provider:
   name: aws
@@ -29,6 +46,11 @@ functions:
     runtime: python3.10
     handler: src/api/server.handler
 
+    events:
+      - httpApi:
+          path: /{proxy+}
+          method: any
+
     environment:
       POSTGRES_USER: ${env:POSTGRES_USER}
       POSTGRES_PASSWORD: ${env:POSTGRES_PASSWORD}
@@ -39,7 +61,3 @@ functions:
 plugins:
   - serverless-python-requirements
 
-# custom:
-#   pythonRequirements:
-#     pythonBin: ./.venv/bin/python
-#     usePipenv: true
