@@ -40,3 +40,7 @@ deploy_serverless:
 export_serverless_requirements:
 	@echo "Exporting requirements..."
 	uv pip compile --group serverless -o requirements.txt
+
+ensure_pip:
+	@echo "Ensuring Pip is installed..."
+	python -m ensurepip
