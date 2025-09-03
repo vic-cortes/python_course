@@ -186,6 +186,7 @@ class DetailScraper(BaseScraper):
             return product_specs
         except Exception as e:
             print(f'error while retrieving product details: {e}')
+
     def get_all_data(self) -> dict:
         """
         Get all data from the product detail page.
