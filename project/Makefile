@@ -35,8 +35,16 @@ run_bot:
 
 deploy_serverless:
 	@echo "Deploying to AWS Lambda..."
-	serverless deploy --stage dev --debug
+	serverless deploy --stage dev
 
 export_serverless_requirements:
 	@echo "Exporting requirements..."
 	uv pip compile --group serverless -o requirements.txt
+
+remove_serverless_project:
+	@echo "Removing serverless requirements..."
+	sls remove --stage dev
+
+ensure_pip:
+	@echo "Ensuring Pip is installed..."
+	python -m ensurepip
