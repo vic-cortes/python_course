@@ -9,6 +9,8 @@ from src.scraper import (
     HomeDepotParentScraper,
     LiverpoolDetailScraper,
     LiverpoolParentScraper,
+    PalacioParentScraper,
+    PalacioDetailScraper,
 )
 from src.scraper.base import BaseScraper
 from src.scraper.constants import DATA_PATH
@@ -23,6 +25,10 @@ SUPPORTED_SCRAPERS = {
         "parent": HomeDepotParentScraper,
         "detail": HomeDepotDetailScraper,
     },
+    "palacio": {
+        "parent": PalacioParentScraper,
+        "detail": PalacioDetailScraper,
+    }
 }
 
 
@@ -128,6 +134,6 @@ def run_scraper(scraper_name: str) -> None:
 
 
 if __name__ == "__main__":
-    scraper_name = "liverpool"
+    scraper_name = "palacio"
     # run_scraper(scraper_name)
     asyncio.run(arun_scraper(scraper_name))
