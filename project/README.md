@@ -13,6 +13,7 @@ Crear una herramienta que permita recopilar y almacenar información de precios 
 La solución está enfocada inicialmente en monitorear los precios de:
 - **Liverpool**
 - **Coppel**
+- **DDTECH**
 
 Sin embargo, la arquitectura está diseñada para ser escalable y permitir la incorporación de nuevos competidores en el futuro de manera sencilla.
 

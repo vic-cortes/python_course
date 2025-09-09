@@ -1,12 +1,9 @@
 import os
-
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
-
-from ..scraper.constants import GECKO_DRIVER_PATH
-
+from webdriver_manager.firefox import GeckoDriverManager  
 STRATEGY = "none"
 
 
@@ -36,7 +33,7 @@ def normalize_string(raw_string: str) -> str:
 
 def get_firefox_driver(headless: bool = False) -> webdriver.Firefox:
     """
-    Get a Firefox WebDriver instance.
+    Get a Firefox WebDriver instance using webdriver-manager.
     """
     options = Options()
 
@@ -54,9 +51,9 @@ def get_firefox_driver(headless: bool = False) -> webdriver.Firefox:
     options.set_capability("pageLoadStrategy", STRATEGY)
     capabilities = DesiredCapabilities.FIREFOX
     capabilities["pageLoadStrategy"] = STRATEGY
-    # capabilities["marionette"] = True
 
-    service = Service(executable_path=GECKO_DRIVER_PATH, log_output=os.path.devnull)
+    # Usando webdriver-manager para instalar automáticamente GeckoDriver
+    service = Service(executable_path=GeckoDriverManager().install())
     driver = webdriver.Firefox(service=service, options=options)
 
     return driver

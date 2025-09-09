@@ -1,139 +1,144 @@
-import asyncio
-import json
-import time
-from concurrent.futures import ThreadPoolExecutor
-from datetime import datetime
-
-from src.scraper import (
-    HomeDepotDetailScraper,
-    HomeDepotParentScraper,
-    LiverpoolDetailScraper,
-    LiverpoolParentScraper,
-    PalacioParentScraper,
-    PalacioDetailScraper,
-)
-from src.scraper.base import BaseScraper
-from src.scraper.constants import DATA_PATH
 from src.scraper.utils import get_firefox_driver
-
-SUPPORTED_SCRAPERS = {
-    "liverpool": {
-        "parent": LiverpoolParentScraper,
-        "detail": LiverpoolDetailScraper,
-    },
-    "home_depot": {
-        "parent": HomeDepotParentScraper,
-        "detail": HomeDepotDetailScraper,
-    },
-    "palacio": {
-        "parent": PalacioParentScraper,
-        "detail": PalacioDetailScraper,
-    }
-}
+from src.scraper.ddtech import DDTechParentScraper, DDTechDetailScraper
+import time
+from selenium.webdriver.common.by import By
 
 
-# Función sincrónica
-def tarea_sincrona(valor):
-    time.sleep(1)
-    return f"Resultado {valor}"
+def test_ddtech_scraper():
+    """Prueba el scraper de DDTech paso a paso"""
 
+    print("🚀 Iniciando prueba del scraper DDTech...")
+    print("📍 URL objetivo: https://ddtech.mx/productos/computadoras/portatiles")
 
-def store_data(scraper: BaseScraper, all_data):
-    if not all_data:
-        print("No data to store.")
-        return
-    current_time = datetime.now().strftime("%Y%m%d_%H_00")
-    current_client_path = DATA_PATH / scraper.service_name
-
-    # Check if folder exists, if not create it
-    if not current_client_path.exists():
-        current_client_path.mkdir(parents=True)
-
-    output_file = current_client_path / f"products_{current_time}.json"
-
-    with open(output_file, "w") as file:
-        json.dump(all_data, file, indent=4)
-
-
-# Función async que ejecuta concurrentemente
-async def arun_scraper(scraper_name: str) -> None:
-    if scraper_name not in SUPPORTED_SCRAPERS:
-        raise ValueError(f"Unsupported scraper: {scraper_name}")
-
-    ParentScraper = SUPPORTED_SCRAPERS[scraper_name]["parent"]
-    DetailScraper = SUPPORTED_SCRAPERS[scraper_name]["detail"]
-
-    driver = get_firefox_driver(headless=True)
-    scraper: BaseScraper = ParentScraper(driver=driver)
-    product_links = scraper.get_all_links()
-    # driver.quit()
-
-    all_data = []
-
-    # async def execute_and_store_data(url: str):
-    #     # driver = get_firefox_driver(headless=True)
-    #     detail_scraper: BaseScraper = DetailScraper(driver=driver, detail_url=url)
-    #     resultado = await asyncio.to_thread(detail_scraper.get_all_data)
-    #     all_data.append(resultado)
-
-    loop = asyncio.get_running_loop()
-    with ThreadPoolExecutor(max_workers=20) as pool:
-
-        async def execute_and_store_data(driver, url):
-            print(f"== Scraping detail page: {url}")
-            detail_scraper: BaseScraper = DetailScraper(driver=driver, detail_url=url)
-            resultado = await loop.run_in_executor(pool, detail_scraper.get_all_data)
-            print(f"== Finished scraping detail page: {url}")
-            all_data.append(resultado)
-
-        tareas = [execute_and_store_data(driver, url) for url in product_links]
-        await asyncio.gather(*tareas)
-
-    # tareas = [execute_and_store_data(url) for url in product_links]
-    # await asyncio.gather(*tareas)
-    print("Resultados:", all_data)
-    driver.quit()
-
-    store_data(scraper, all_data)
-
-
-# asyncio.run(arun_scraper("home_depot"))
-
-
-def run_scraper(scraper_name: str) -> None:
-    """
-    Run the specified scraper and save the results to a JSON file.
-    """
-    if scraper_name not in SUPPORTED_SCRAPERS:
-        raise ValueError(f"Unsupported scraper: {scraper_name}")
-
-    ParentScraper = SUPPORTED_SCRAPERS[scraper_name]["parent"]
-    DetailScraper = SUPPORTED_SCRAPERS[scraper_name]["detail"]
-
+    # Crear driver con headless=False para ver lo que pasa
     driver = get_firefox_driver(headless=False)
-    scraper: BaseScraper = ParentScraper(driver=driver)
 
-    product_links = scraper.get_all_links()
+    try:
+        print("\n" + "=" * 50)
+        print("📋 PASO 1: Obteniendo enlaces de productos...")
+        print("=" * 50)
 
-    all_data = []
+        parent_scraper = DDTechParentScraper(driver)
+        product_links = parent_scraper.scroll_and_collect()  # ✅ corregido
 
-    for link in product_links:
-        detail_scraper = DetailScraper(driver=driver, detail_url=link)
+        print(f"\n✅ Enlaces encontrados: {len(product_links)}")
 
-        try:
-            product_details = detail_scraper.get_all_data()
-        except Exception as e:
-            print(f"Error occurred while scraping {link}: {e}")
-            continue
+        if not product_links:
+            print("❌ No se encontraron enlaces de productos")
+            print("\n🔧 DEBUGGING TIPS:")
+            print("- Verificar que la página cargue correctamente")
+            print("- Inspeccionar selectores con DevTools")
+            print("- Revisar si hay captcha o bloqueo")
+            return
 
-        all_data.append(product_details)
+        # Mostrar algunos enlaces encontrados
+        print("\n📝 Primeros 5 enlaces:")
+        for i, link in enumerate(product_links[:5], 1):
+            print(f"   {i}. {link}")
 
-    store_data(scraper, all_data)
+        # PASO 2: Probar scraper de detalles con un producto
+        if product_links:
+            print("\n" + "=" * 50)
+            print("🔍 PASO 2: Probando extracción de datos...")
+            print("=" * 50)
 
-    driver.quit()
+            test_url = product_links[0]
+            print(f"🎯 Probando con: {test_url}")
+
+            detail_scraper = DDTechDetailScraper(driver, test_url)
+            product_data = detail_scraper.get_all_data()
+
+            print("\n📊 Datos extraídos:")
+            print("-" * 30)
+            print(f"Marca: {product_data.get('marca', 'No encontrada')}")
+            print(f"Nombre: {product_data.get('nombre', 'No encontrado')}")
+            print(f"Precio: ${product_data.get('precio', 'No encontrado')}")
+            print(f"Descripción: {product_data.get('descripcion', 'No encontrada')}")
+
+            if 'error' in product_data:
+                print(f"⚠️ Error encontrado: {product_data['error']}")
+
+        print("\n" + "=" * 50)
+        print("✅ Prueba completada")
+        print("=" * 50)
+
+    except Exception as e:
+        print(f"❌ Error durante la prueba: {e}")
+        import traceback
+        traceback.print_exc()
+
+    finally:
+        print("\n⏳ Cerrando navegador en 10 segundos...")
+        time.sleep(10)
+        driver.quit()
+
+
+def inspect_page_structure():
+    """Inspecciona la estructura de la página para identificar selectores"""
+
+    print("🔍 Inspeccionando estructura de la página...")
+    driver = get_firefox_driver(headless=False)
+
+    try:
+        driver.get("https://ddtech.mx/productos/computadoras/portatiles")
+        time.sleep(5)
+
+        print("\n📋 Analizando elementos de la página...")
+
+        # Buscar elementos que podrían contener productos
+        potential_selectors = [
+            "article",
+            ".card",
+            ".product",
+            ".item",
+            "[class*='product']",
+            "[class*='item']",
+            "[data-product]",
+            ".grid > div",
+        ]
+
+        for selector in potential_selectors:
+            try:
+                elements = driver.find_elements(By.CSS_SELECTOR, selector)
+                if elements:
+                    print(f"✅ {selector}: {len(elements)} elementos")
+                else:
+                    print(f"❌ {selector}: 0 elementos")
+            except Exception as e:
+                print(f"⚠️  {selector}: Error - {e}")
+
+        # Buscar enlaces
+        all_links = driver.find_elements(By.TAG_NAME, "a")
+        product_like_links = []
+
+        for link in all_links:
+            href = link.get_attribute("href")
+            if href and ("laptop" in href.lower() or "producto" in href.lower()):
+                product_like_links.append(href)
+
+        print(f"\n🔗 Enlaces que parecen productos: {len(product_like_links)}")
+        for i, link in enumerate(product_like_links[:3], 1):
+            print(f"   {i}. {link}")
+
+        input("\n⏸️  Presiona Enter cuando hayas terminado de inspeccionar...")
+
+    except Exception as e:
+        print(f"Error: {e}")
+
+    finally:
+        driver.quit()
 
 
 if __name__ == "__main__":
-    scraper_name = "palacio"
-    # run_scraper(scraper_name)
-    asyncio.run(arun_scraper(scraper_name))
+    print("Selecciona una opción:")
+    print("1. Probar scraper completo")
+    print("2. Inspeccionar estructura de la página")
+
+    choice = input("Opción (1 o 2): ").strip()
+
+    if choice == "1":
+        test_ddtech_scraper()
+    elif choice == "2":
+        inspect_page_structure()
+    else:
+        print("Opción no válida")
